@@ -1,0 +1,81 @@
+import { useState } from 'react';
+import { Link, usePage } from '@inertiajs/react';
+import { FaSearch} from 'react-icons/fa';
+import NavDropdown, { DropdownLink } from './NavDropDown';
+
+const logoPath = '/images/logo-unsri.png'; 
+
+export default function Navbar() {
+    const { url } = usePage();
+    const [isSearchOpen, setIsSearchOpen] = useState(false); 
+
+    const navLinkClasses = "relative font-semibold text-gray-700 transition-colors duration-300 hover:text-yellow-500 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-yellow-500 after:transition-all after:duration-300 hover:after:w-full";
+    const activeNavLinkClasses = "relative font-bold text-yellow-500 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:bg-yellow-500";
+
+    return (
+        <nav className="bg-white shadow-sm sticky top-0 z-50 relative">
+            <div className="container mx-auto flex justify-between items-center py-4 px-52">
+                <Link href="/" className="flex items-center space-x-3">
+                    <img src={logoPath} alt="Logo Teknik Informatika Unsri" className="h-12" />
+                </Link>
+
+                <div className="hidden md:flex items-center space-x-8">
+                    <Link href="/" className={url === '/' ? activeNavLinkClasses : navLinkClasses}>
+                        BERANDA
+                    </Link>
+                    
+                    <NavDropdown title="PROFIL">
+                        <DropdownLink href="/tentang-prodi">VISI DAN MISI</DropdownLink>
+                        <DropdownLink href="/profil-lulusan">PROFIL LULUSAN</DropdownLink>
+                        <DropdownLink href="/struktur-pimpinan">STRUKTUR ORGANISASI</DropdownLink>
+                        <DropdownLink href="/cpl">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
+                    </NavDropdown>
+
+                    <Link href="/berita" className={url.startsWith('/berita') ? activeNavLinkClasses : navLinkClasses}>
+                        BERITA
+                    </Link>
+
+                    <NavDropdown title="AKADEMIK">
+                        <DropdownLink href="/kurikulum">KURIKULUM</DropdownLink>
+                        <DropdownLink href="/jadwal">JADWAL</DropdownLink>
+                        <DropdownLink href="/dokumen">DOKUMEN</DropdownLink>
+                    </NavDropdown>
+                    
+                    <NavDropdown title="PANDUAN DAN SOP">
+                        <DropdownLink href="/prosedur-tugas-akhir">PROSEDUR TUGAS AKHIR</DropdownLink>
+                        <DropdownLink href="/panduan-tugas-akhir">PANDUAN TUGAS AKHIR</DropdownLink>
+                        <DropdownLink href="/prosedur-kerja-praktek">PROSEDUR KERJA PRAKTEK</DropdownLink>
+                        <DropdownLink href="/panduan-kerja-praktek">PANDUAN KERJA PRAKTEK</DropdownLink>
+                        <DropdownLink href="/sop-mbkm">SOP MBKM</DropdownLink>
+                        <DropdownLink href="/panduan-mata-kuliah-berbasis-proyek">PANDUAN MATA KULIAH BERBASIS PROYEK</DropdownLink>
+                    </NavDropdown>
+                    
+                    <button 
+                        onClick={() => setIsSearchOpen(!isSearchOpen)}
+                        className="text-gray-700 hover:text-yellow-500 transition-colors"
+                    >
+                        <FaSearch size={20} />
+                    </button>
+                </div>
+            </div>
+
+            <div 
+                className={`absolute top-full left-0 w-full bg-white shadow-md transition-all duration-300 ease-in-out
+                    ${isSearchOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-full invisible'}`}
+            >
+                <div className="container mx-auto flex items-center py-4 px-52">
+                    <div className="relative w-full">
+                        <input 
+                            type="text" 
+                            placeholder="Masukkan kata kunci..."
+                            className="w-full py-2 pl-4 pr-12 text-gray-700 border-2 border-gray-300 rounded-md focus:outline-none focus:border-yellow-500"
+                        />
+                        <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-800">
+                            <FaSearch size={18} />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    );
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaPhoneAlt, FaEnvelope, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 export default function TopHeader() {
