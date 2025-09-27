@@ -9,11 +9,9 @@ const logoPath = '/images/logo-unsri.png';
 export default function Navbar() {
     const { url } = usePage();
 
-    // --- PERUBAHAN DIMULAI DI SINI ---
     const navLinkClasses = "relative font-semibold text-gray-700 transition-colors duration-300 hover:text-yellow-500 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-yellow-500 after:transition-all after:duration-300 hover:after:w-full";
     
     const activeNavLinkClasses = "relative font-bold text-yellow-500 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:bg-yellow-500";
-    // --- PERUBAHAN SELESAI DI SINI ---
 
     return (
         <nav className="bg-white shadow-sm sticky top-0 z-50">
