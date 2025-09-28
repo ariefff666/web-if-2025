@@ -1,4 +1,4 @@
-// resources/js/Components/NavDropdown.tsx
+// resources/js/Components/Navbar/NavDropdown.tsx
 
 import React, { useState } from 'react';
 import { FaChevronDown } from 'react-icons/fa';
