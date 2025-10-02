@@ -5,13 +5,11 @@ import VideoProfile from '@/Components/Beranda/VideoProfile';
 import WelcomeMessage from '@/Components/Beranda/WelcomeMessage';
 import NewsAndUpdates from '@/Components/Beranda/NewsAndUpdates';
 import AlumniTestimonials from '@/Components/Beranda/AlumniTestimonials';
-import ImageSlider from '@/Components/Beranda/ImageSlider';
 
 export default function Beranda() {
     return (
         <GlobalLayout>
             <Head title="Beranda" /> {/* yellow */}
-            {/* <ImageSlider /> */}
             <Hero />
             <VideoProfile />
             <WelcomeMessage />
