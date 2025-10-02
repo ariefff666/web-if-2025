@@ -2,8 +2,8 @@ import { FaPhoneAlt, FaEnvelope, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 export default function TopHeader() {
     return (
-        <header className="bg-sky-600 text-white text-sm">
-            <div className="container mx-auto sm:px-6 xl:px-32 py-2 flex justify-between items-center">
+        <header className="bg-sky-600 text-white text-sm hidden sm:flex">
+            <div className="container mx-auto py-2 px-4 sm:px-6 lg:px-32 flex justify-between items-center">
                 {/* Bagian Kiri: Info Kontak */}
                 <div className="flex items-center space-x-6">
                     <a href="tel:+62711379249" className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
