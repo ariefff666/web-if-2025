@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Link, usePage } from '@inertiajs/react';
-import { FaSearch} from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import NavDropdown, { DropdownLink } from './NavDropDown';
 
 const logoPath = '/images/logo-unsri.png'; 
@@ -18,8 +18,14 @@ export default function Navbar() {
     | - useRef & useEffect: Untuk mendeteksi klik di luar area search bar.
     */
     const { url } = usePage();
-    const [isSearchOpen, setIsSearchOpen] = useState(false); 
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+    // Helper function to check if current URL is in a specific section
+    const isInSection = (path: string) => url.startsWith(path);
+    
+    // Check if we're in profile section
+    const isInProfile = url.includes('profil');
+    
     /*
     |--------------------------------------------------------------------------
     | Styling Classes
@@ -53,29 +59,69 @@ export default function Navbar() {
                         BERANDA
                     </Link>
                     
-                    {/* Komponen Dropdown yang bisa digunakan kembali */}
-                    <NavDropdown title="PROFIL">
-                        <DropdownLink href="/visi-misi">VISI DAN MISI</DropdownLink>
-                        <DropdownLink href="/profil-lulusan">PROFIL LULUSAN</DropdownLink>
-                        <DropdownLink href="/struktur-pimpinan">STRUKTUR ORGANISASI</DropdownLink>
-                        <DropdownLink href="/cpl">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
+                    {/* PROFIL dropdown with active state */}
+                    <NavDropdown title="PROFIL" isActive={isInProfile}>
+                        <DropdownLink 
+                            href={route('profil.visi-misi')} 
+                            isActive={url.includes('visi-misi')}
+                        >
+                            Visi & Misi
+                        </DropdownLink>
+                        <DropdownLink 
+                            href={route('profil.profil-jurusan')} 
+                            isActive={url.includes('profil-jurusan')}
+                        >
+                            Profil Jurusan
+                        </DropdownLink>
+                        <DropdownLink 
+                            href={route('profil.struktur-pimpinan')} 
+                            isActive={url.includes('struktur-pimpinan')}
+                        >
+                            Struktur Pimpinan
+                        </DropdownLink>
+                        <DropdownLink 
+                            href={route('profil.capaian-pembelajaran')} 
+                            isActive={url.includes('capaian-pembelajaran')}
+                        >
+                            Capaian Pembelajaran Lulusan
+                        </DropdownLink>
                     </NavDropdown>
 
-                    <Link href="/berita" className={url.startsWith('/berita') ? activeNavLinkClasses : navLinkClasses}>
+                    <Link href="/berita" className={isInSection('/berita') ? activeNavLinkClasses : navLinkClasses}>
                         BERITA
                     </Link>
 
-                    <NavDropdown title="AKADEMIK">
-                        <DropdownLink href="/kurikulum">KURIKULUM</DropdownLink>
-                        <DropdownLink href="/jadwal">JADWAL</DropdownLink>
-                        <DropdownLink href="/dokumen">DOKUMEN</DropdownLink>
+                    <NavDropdown title="AKADEMIK" isActive={isInSection('/akademik')}>
+                        <DropdownLink href="/kurikulum" isActive={url.includes('kurikulum')}>KURIKULUM</DropdownLink>
+                        <DropdownLink href="/jadwal" isActive={url.includes('jadwal')}>JADWAL</DropdownLink>
+                        <DropdownLink href="/dokumen" isActive={url.includes('dokumen')}>DOKUMEN</DropdownLink>
                     </NavDropdown>
                     
-                    <NavDropdown title="PANDUAN DAN SOP">
-                        <DropdownLink href="/prosedur-tugas-akhir">PROSEDUR TUGAS AKHIR</DropdownLink>
-                        <DropdownLink href="/panduan-tugas-akhir">PANDUAN TUGAS AKHIR</DropdownLink>
-                        <DropdownLink href="/prosedur-kerja-praktek">PROSEDUR KERJA PRAKTEK</DropdownLink>
-                        <DropdownLink href="/panduan-kerja-praktek">PANDUAN KERJA PRAKTEK</DropdownLink>
+                    <NavDropdown title="PANDUAN DAN SOP" isActive={isInSection('/panduan') || isInSection('/sop')}>
+                        <DropdownLink 
+                            href="/prosedur-tugas-akhir" 
+                            isActive={url.includes('prosedur-tugas-akhir')}
+                        >
+                            PROSEDUR TUGAS AKHIR
+                        </DropdownLink>
+                        <DropdownLink 
+                            href="/panduan-tugas-akhir"
+                            isActive={url.includes('panduan-tugas-akhir')}
+                        >
+                            PANDUAN TUGAS AKHIR
+                        </DropdownLink>
+                        <DropdownLink 
+                            href="/prosedur-kerja-praktek" 
+                            isActive={url.includes('prosedur-kerja-praktek')}
+                        >
+                            PROSEDUR KERJA PRAKTEK
+                        </DropdownLink>
+                        <DropdownLink 
+                            href="/panduan-kerja-praktek"
+                            isActive={url.includes('panduan-kerja-praktek')}
+                        >
+                            PANDUAN KERJA PRAKTEK
+                        </DropdownLink>
                         <DropdownLink href="/sop-mbkm">SOP MBKM</DropdownLink>
                         <DropdownLink href="/panduan-mata-kuliah-berbasis-proyek">PANDUAN MATA KULIAH BERBASIS PROYEK</DropdownLink>
                     </NavDropdown>
@@ -86,8 +132,7 @@ export default function Navbar() {
                     |--------------------------------------------------------------------------
                     | Wadah 'relative' untuk tombol pencarian dan panel pop-over.
                     | 'ref' digunakan untuk mendeteksi klik di luar area ini.
-                    */
-                    }
+                    */}
                     <button 
                         onClick={() => setIsSearchOpen(!isSearchOpen)}
                         className="text-gray-700 hover:text-yellow-500 transition-colors"

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfilController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,6 +24,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::prefix('profil')->name('profil.')->group(function () {
+    Route::get('/visi-misi', [ProfilController::class, 'visiMisi'])->name('visi-misi');
+    Route::get('/profil-jurusan', [ProfilController::class, 'profilJurusan'])->name('profil-jurusan');
+    Route::get('/struktur-pimpinan', [ProfilController::class, 'strukturPimpinan'])->name('struktur-pimpinan');
+    Route::get('/capaian-pembelajaran', [ProfilController::class, 'capaianPembelajaran'])->name('capaian-pembelajaran');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

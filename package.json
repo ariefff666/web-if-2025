@@ -38,6 +38,8 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@tabler/icons-react": "^3.35.0",
+        "framer-motion": "^12.23.22",
         "react-icons": "^5.5.0"
     }
 }
