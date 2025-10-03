@@ -8,9 +8,10 @@ import { Link } from '@inertiajs/react';
 interface NavDropdownProps {
     title: string;          // Teks yang akan ditampilkan di tombol utama (misal: "PROFIL")
     children: React.ReactNode; // Konten yang akan muncul di dalam panel dropdown (biasanya daftar DropdownLink)
+    isActive?: boolean;     // Menandakan apakah dropdown dalam keadaan aktif
 }
 
-export default function NavDropdown({ title, children }: NavDropdownProps) {
+export default function NavDropdown({ title, children, isActive = false }: NavDropdownProps) {
     /*
     |--------------------------------------------------------------------------
     | State Management
@@ -29,6 +30,7 @@ export default function NavDropdown({ title, children }: NavDropdownProps) {
     | yang muncul saat di-hover pada link utama di navbar.
     */
     const navLinkClasses = "relative font-semibold text-gray-700 transition-colors duration-300 hover:text-yellow-500 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-0 after:bg-yellow-500 after:transition-all after:duration-300 hover:after:w-full";
+    const activeNavLinkClasses = "relative font-bold text-yellow-500 after:content-[''] after:absolute after:bottom-[-5px] after:left-0 after:h-[2px] after:w-full after:bg-yellow-500";
 
     return (
         // Wadah utama dari komponen dropdown.
@@ -41,7 +43,7 @@ export default function NavDropdown({ title, children }: NavDropdownProps) {
             onMouseLeave={() => setIsOpen(false)}
         >
             {/* Ini adalah tombol utama yang terlihat di navbar */}
-            <div className={`${navLinkClasses} flex items-center space-x-1 cursor-pointer`}>
+            <div className={`${isActive ? activeNavLinkClasses : navLinkClasses} flex items-center space-x-1 cursor-pointer`}>
                 <span>{title}</span>
                 {/* Ikon panah yang akan berputar saat dropdown terbuka */}
                 <FaChevronDown
@@ -72,9 +74,10 @@ export default function NavDropdown({ title, children }: NavDropdownProps) {
 interface DropdownLinkProps {
     href: string;
     children: React.ReactNode;
+    isActive?: boolean; // Menandakan apakah link dalam keadaan aktif
 }
 
-export const DropdownLink = ({ href, children }: DropdownLinkProps) => {
+export const DropdownLink = ({ href, children, isActive = false }: DropdownLinkProps) => {
     return (
         <Link
             href={href}
@@ -87,7 +90,11 @@ export const DropdownLink = ({ href, children }: DropdownLinkProps) => {
             | - before:...: Membuat pseudo-element untuk garis kuning vertikal di kiri
             |   yang muncul saat di-hover dengan animasi 'scale-y'.
             */
-            className="relative block px-4 py-2 text-sm text-gray-200 hover:bg-blue-900/50 hover:text-yellow-500 transition-colors duration-200 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-yellow-500 before:scale-y-0 hover:before:scale-y-100 before:transition-transform before:duration-300"
+            className={`relative block px-4 py-2 text-sm ${
+                isActive 
+                    ? 'font-bold text-yellow-500 bg-blue-900/30 before:scale-y-100' 
+                    : 'text-gray-200 hover:bg-blue-900/50 hover:text-yellow-500 before:scale-y-0 hover:before:scale-y-100'
+            } transition-colors duration-200 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-yellow-500 before:transition-transform before:duration-300`}
         >
             {children}
         </Link>
