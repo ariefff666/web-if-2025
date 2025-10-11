@@ -5,6 +5,8 @@ import VideoProfile from '@/Components/Beranda/VideoProfile';
 import WelcomeMessage from '@/Components/Beranda/WelcomeMessage';
 import NewsAndUpdates from '@/Components/Beranda/NewsAndUpdates';
 import AlumniTestimonials from '@/Components/Beranda/AlumniTestimonials';
+import LecturerSection from '@/Components/Beranda/LecturerSection';
+import Facilities from '@/Components/Beranda/Facilities';
 
 export default function Beranda() {
     return (
@@ -15,6 +17,8 @@ export default function Beranda() {
             <WelcomeMessage />
             <NewsAndUpdates />
             <AlumniTestimonials />
+            <LecturerSection />
+            <Facilities />
         </GlobalLayout>
     );
 }

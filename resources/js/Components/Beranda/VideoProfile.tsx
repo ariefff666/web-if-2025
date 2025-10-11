@@ -14,14 +14,13 @@ export default function VideoProfile() {
     | YouTube Embed URL
     |--------------------------------------------------------------------------
     | Variabel ini menyimpan link embed untuk video YouTube yang akan ditampilkan.
-    | Ganti nilai ini dengan link 'src' dari kode embed video profil Anda.
-    | (PS: Kali ini link-nya asli, bukan Rick Roll lagi 😄)
+    | Ganti nilai ini dengan link 'src' dari kode embed video profil.
     */
     const youtubeEmbedUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ?si=Xv_hV7hPfDSXPQnf"; 
 
     return (
         // Wadah utama untuk seluruh section video.
-        <section className="bg-white py-16 px-4">
+        <section className="bg-white py-8 px-4">
             <div className="container mx-auto px-4 sm:px-6 lg:px-32">
                 
                 {/* Bagian header untuk judul dan subjudul section */}

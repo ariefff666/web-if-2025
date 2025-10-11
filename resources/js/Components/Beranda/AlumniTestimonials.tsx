@@ -1,16 +1,12 @@
-// resources/js/Components/Beranda/AlumniTestimonials.tsx
-
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 // Impor komponen dan modul Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 
 // Impor file CSS Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
-
-import BackGroundAnimation from './BackGroundAnimation';
 
 // Data dummy
 const testimonials = [
@@ -51,62 +47,120 @@ const testimonials = [
     }
 ];
 
+/*
+|--------------------------------------------------------------------------
+| Komponen SectionHeader
+|--------------------------------------------------------------------------
+| Header untuk section yang mencakup judul dan tombol navigasi kustom
+| untuk Swiper. Tombol ini memiliki class name spesifik yang akan di-target
+| oleh Swiper untuk fungsionalitasnya.
+*/
+const SectionHeader = ({ title }: { title: string }) => (
+    <div>
+        <div className="flex justify-between items-center">
+            <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-800">{title}</h2>
+            </div>
+            {/* Tombol Navigasi Kustom */}
+            <div className="flex gap-3">
+                <button
+                    className="swiper-button-prev-custom bg-yellow-400 hover:bg-yellow-500 text-white p-3 rounded-sm shadow-md transition disabled:bg-gray-200"
+                    aria-label="Sebelumnya"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button
+                    className="swiper-button-next-custom bg-yellow-400 hover:bg-yellow-500 text-white p-3 rounded-sm shadow-md transition disabled:bg-gray-200"
+                    aria-label="Berikutnya"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        {/* Garis Dekoratif */}
+        <div className="relative w-full h-1 mx-auto my-4 mb-12">
+            <div className="absolute top-1/2 left-0 w-full h-px bg-gray-300"></div>
+        </div>
+    </div>
+);
+
 export default function AlumniTestimonials() {
-    // 2. State untuk menampung referensi ke elemen pagination
-    const [paginationEl, setPaginationEl] = useState<HTMLElement | null>(null);
+    /*
+    |--------------------------------------------------------------------------
+    | Component State & Hooks
+    |--------------------------------------------------------------------------
+    | - paginationRef: Hook 'useRef' untuk menyimpan referensi ke elemen DOM
+    |   yang akan menjadi wadah pagination (titik-titik).
+    | - swiperReady & useEffect: Trik untuk menunda render Swiper hingga
+    |   komponen sudah di-mount. Ini untuk memastikan 'paginationRef.current'
+    |   tidak null saat Swiper diinisialisasi.
+    */
+    const paginationRef = useRef<HTMLDivElement | null>(null);
+    const [swiperReady, setSwiperReady] = useState(false);
+
+    useEffect(() => {
+        setSwiperReady(true);
+    }, []);
 
     return (
-        <section className="relative py-20">
-            <BackGroundAnimation />
+        <section className="relative py-8 bg-gradient-to-b from-white from-0% to-sky-600 to-90%">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-28 py-8 md:py-10 lg:py-8 bg-white rounded-3xl shadow-lg">
+                <SectionHeader title="Apa Kata Alumni" />
 
-            <div className="container mx-auto px-4 sm:px-6 lg:px-32 py-8 md:py-10 lg:py-8 bg-zinc-200/50 rounded-3xl backdrop-blur-sm">
-                {/* Header Section */}
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold text-gray-800">Cerita Sukses Alumni</h2>
-                    <div className="relative w-84 h-1 mx-auto my-4">
-                        <div className="absolute top-1/2 left-0 w-full h-px bg-gray-300"></div>
-                        <div className="relative w-24 h-1 bg-sky-600 mx-auto rounded"></div>
-                    </div>
-                    <p className="text-lg text-gray-600 mt-2">
-                        Mereka sudah merasakan manfaat nyata dari serunya belajar di kampus.
-                    </p>
-                </div>
-
-                <Swiper
-                    modules={[Pagination, Autoplay]}
-                    spaceBetween={30}
-                    slidesPerView={1}
-                    pagination={{ clickable: true, el: paginationEl }} 
-                    autoplay={{ delay: 5000, disableOnInteraction: false }}
-                    breakpoints={{
-                        768: { slidesPerView: 2 },
-                        1280: { slidesPerView: 4 },
-                    }}
-                    className="pb-4" 
-                >
-                    {testimonials.map((testimonial, index) => (
-                        <SwiperSlide key={index} className="pb-4">
-                            <div className="bg-white p-8 rounded-xl shadow-lg h-[28rem] flex flex-col">
-                                <p className="text-gray-600 text-sm mb-6 flex-grow line-clamp-6 text-justify">
-                                    "{testimonial.text}"
-                                </p>
-                                <div className="border-t border-gray-200 pt-6">
-                                    <div className="flex items-center">
-                                        <div className="w-12 h-12 rounded-full bg-gray-200 mr-4">
-                                        </div>
-                                        <div>
-                                            <p className="font-bold text-gray-800">{testimonial.name}</p>
-                                            <p className="text-xs text-yellow-500">{testimonial.title}</p>
-                                            <p className="text-xs text-gray-500 mt-1">{testimonial.major}</p>
+                {/* Conditional rendering untuk memastikan Swiper hanya dirender setelah 'ref' siap */}
+                {swiperReady && (
+                    <Swiper
+                        modules={[Pagination, Autoplay, Navigation]}
+                        spaceBetween={30}
+                        slidesPerView={1}
+                        pagination={{
+                            clickable: true,
+                            el: paginationRef.current!, // Menggunakan referensi DOM
+                        }}
+                        navigation={{
+                            // Menghubungkan tombol kustom dengan navigasi Swiper
+                            prevEl: ".swiper-button-prev-custom",
+                            nextEl: ".swiper-button-next-custom",
+                        }}
+                        autoplay={{
+                            delay: 4000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                        }}
+                        breakpoints={{
+                            640: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                        }}
+                        className="pb-8"
+                    >
+                        {testimonials.map((t, i) => (
+                            <SwiperSlide key={i} className="pb-8">
+                                <div className="bg-white p-8 rounded-xl shadow-lg h-[28rem] flex flex-col">
+                                    <p className="text-gray-600 text-sm mb-6 flex-grow line-clamp-6 text-justify">
+                                        "{t.text}"
+                                    </p>
+                                    <div className="border-t border-gray-200 pt-6">
+                                        <div className="flex items-center">
+                                            <div className="w-12 h-12 rounded-full bg-gray-200 mr-4" />
+                                            <div>
+                                                <p className="font-bold text-gray-800">{t.name}</p>
+                                                <p className="text-xs text-yellow-500">{t.title}</p>
+                                                <p className="text-xs text-gray-500 mt-1">{t.major}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                )}
 
-                <div ref={setPaginationEl} className="relative mt-8 flex justify-center"></div>
+                {/* Wadah kustom untuk pagination (titik-titik) */}
+                <div ref={paginationRef} className="relative mt-8 flex justify-center" />
             </div>
         </section>
     );

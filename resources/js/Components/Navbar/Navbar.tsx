@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, usePage } from '@inertiajs/react';
-import { FaChevronDown, FaSearch, FaTimes, FaBars } from 'react-icons/fa';
+import { FaSearch, FaTimes, FaBars } from 'react-icons/fa';
 import NavDropdown, { DropdownLink } from './NavDropDown';
 
 const logoPath = '/images/logo-unsri.png'; 
@@ -46,10 +46,10 @@ export default function Navbar() {
                     
                     {/* Komponen Dropdown yang bisa digunakan kembali */}
                     <NavDropdown title="PROFIL">
-                        <DropdownLink href="/visi-misi">VISI DAN MISI</DropdownLink>
-                        <DropdownLink href="/profil-lulusan">PROFIL LULUSAN</DropdownLink>
-                        <DropdownLink href="/struktur-pimpinan">STRUKTUR ORGANISASI</DropdownLink>
-                        <DropdownLink href="/cpl">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
+                        <DropdownLink href="/profil/visi-misi">VISI DAN MISI</DropdownLink>
+                        <DropdownLink href="/profil/profil-lulusan">PROFIL LULUSAN</DropdownLink>
+                        <DropdownLink href="/profil/struktur-pimpinan">STRUKTUR ORGANISASI</DropdownLink>
+                        <DropdownLink href="/profil/cpl">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
                     </NavDropdown>
 
                     <Link href="/berita" className={url.startsWith('/berita') ? activeNavLinkClasses : navLinkClasses}>

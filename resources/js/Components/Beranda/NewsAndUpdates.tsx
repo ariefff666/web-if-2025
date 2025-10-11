@@ -1,4 +1,3 @@
-// resources/js/Components/Beranda/NewsAndUpdates.tsx
 const SectionHeader = ({ title }: { title: string }) => {
     let accentLineWidthClass;
 
@@ -30,7 +29,7 @@ const EmptyState = ({ message }: { message: string }) => (
 
 export default function NewsAndUpdates() {
     return (
-        <section className="bg-white py-16 md:py-20">
+        <section className="bg-white py-8">
             {/* Padding horizontal diubah menjadi responsif */}
             <div className="container mx-auto px-4 sm:px-6 lg:px-32">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
