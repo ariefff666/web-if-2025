@@ -107,8 +107,8 @@ export default function AlumniTestimonials() {
     }, []);
 
     return (
-        <section className="relative py-8 bg-gradient-to-b from-white from-0% to-sky-600 to-90%">
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-28 py-8 md:py-10 lg:py-8 bg-white rounded-3xl shadow-lg">
+        <section className="relative py-8 bg-gradient-to-t from-sky-100 from-30% to-white to-100%">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-28 py-8 md:py-10 lg:py-8">
                 <SectionHeader title="Apa Kata Alumni" />
 
                 {/* Conditional rendering untuk memastikan Swiper hanya dirender setelah 'ref' siap */}
@@ -133,7 +133,7 @@ export default function AlumniTestimonials() {
                         }}
                         breakpoints={{
                             640: { slidesPerView: 2 },
-                            1024: { slidesPerView: 3 },
+                            1024: { slidesPerView: 4 },
                         }}
                         className="pb-8"
                     >

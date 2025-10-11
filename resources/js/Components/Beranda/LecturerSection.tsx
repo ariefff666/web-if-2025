@@ -117,8 +117,8 @@ export default function LecturerSection() {
     const swiperRef = useRef<any>(null);
 
     return (
-        <section className="bg-gradient-to-b from-sky-600 from-10% to-white to-100% py-8">
-            <div className="py-8 bg-white rounded-2xl shadow-lg container max-w-7xl px-4 sm:px-6 lg:px-28 mx-auto">
+        <section className="bg-gradient-to-b from-sky-100 from-0% to-sky-700 to-100%">
+            <div className="py-8 rounded-2xl container px-4 sm:px-6 lg:px-28 mx-auto">
                 <SectionHeader title="Dosen Pengajar" />
                 <Swiper
                     modules={[Pagination, Autoplay, Navigation]}
@@ -138,7 +138,7 @@ export default function LecturerSection() {
                     breakpoints={{
                         640: { slidesPerView: 2 },
                         768: { slidesPerView: 3 },
-                        1024: { slidesPerView: 3 },
+                        1024: { slidesPerView: 4 },
                     }}
                     // Menyimpan instance Swiper ke dalam ref
                     onBeforeInit={(swiper) => {
