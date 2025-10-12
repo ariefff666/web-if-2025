@@ -1,5 +1,6 @@
 // resources/js/Components/ContentCategorySection.tsx
 
+import { NewsAnnouncementsAchievements } from '@/types';
 import { LatestItemCard, PopularItemCard } from './ContentCards';
 
 const SectionHeader = ({ title }: { title: string }) => {
@@ -17,8 +18,8 @@ const SectionHeader = ({ title }: { title: string }) => {
 
 interface ContentCategorySectionProps {
     categoryTitle: string;
-    latestItems: any[];
-    popularItems: any[];
+    latestItems: NewsAnnouncementsAchievements[];
+    popularItems: NewsAnnouncementsAchievements[];
 }
 
 export default function ContentCategorySection({ categoryTitle, latestItems, popularItems }: ContentCategorySectionProps) {

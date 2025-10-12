@@ -28,3 +28,19 @@ export type Lecturer = {
     title: string;
     photoUrl: string;
 }
+
+export type NewsAnnouncementsAchievements = {
+    id: number;
+    title: string;
+    slug: string;
+    category: 'berita' | 'pengumuman' | 'prestasi';
+    is_popular?: boolean | null;
+    excerpt?: string | null;
+    body?: string | null;
+    image_url: string | undefined;
+    student_name?: string | null;
+    date?: string | null;
+    published_at?: string | null;
+    created_at: string;
+    updated_at: string;
+};

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeritaPageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Foundation\Application;
@@ -29,9 +30,7 @@ Route::prefix('profil')->name('profil.')->group(function () {
     Route::get('/capaian-pembelajaran', [ProfilController::class, 'capaianPembelajaran'])->name('capaian-pembelajaran');
 });
 
-Route::get('/berita', function () {
-    return Inertia::render('Berita/Berita');
-})->name('berita');
+Route::get('/berita', [BeritaPageController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

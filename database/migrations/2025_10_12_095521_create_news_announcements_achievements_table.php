@@ -16,10 +16,12 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('category');
+            $table->boolean('is_popular')->nullable();
             $table->text('excerpt')->nullable();
             $table->longText('body')->nullable();
             $table->string('image_url')->nullable();
             $table->string('student_name')->nullable();
+            $table->date('date')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

@@ -1,13 +1,12 @@
-// resources/js/Components/ContentCards.tsx
-
 import { Link } from '@inertiajs/react';
+import { NewsAnnouncementsAchievements } from '@/types';
 
 // Kartu untuk item di grid kiri (Berita/Pengumuman/Prestasi Terbaru)
-export const LatestItemCard = ({ item }: { item: any }) => (
+export const LatestItemCard = ({ item }: { item: NewsAnnouncementsAchievements }) => (
     <div className="bg-white rounded-lg shadow-md overflow-hidden group">
-        <Link href={item.url} className="block">
+        <Link href={`/berita/${item.slug}`} className="block">
             <div className="relative aspect-video bg-gray-200">
-                <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                <img src={item.image_url} alt={item.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
             </div>
             <div className="p-4">
                 <p className="text-sm text-gray-500 mb-1">{item.date}</p>
@@ -24,15 +23,15 @@ export const LatestItemCard = ({ item }: { item: any }) => (
 );
 
 // Kartu untuk item di list kanan (Berita/Pengumuman/Prestasi Populer)
-export const PopularItemCard = ({ item }: { item: any }) => (
+export const PopularItemCard = ({ item }: { item: NewsAnnouncementsAchievements }) => (
     <Link
-        href={item.url}
+        href={`/berita/${item.slug}`}
         className="flex rounded-xl overflow-hidden shadow-sm bg-white hover:shadow-md transition-shadow duration-200"
     >
         {/* Gambar di sisi kiri */}
         <div className="w-32 h-28 flex-shrink-0">
             <img
-                src={item.imageUrl}
+                src={item.image_url}
                 alt={item.title}
                 className="w-full h-full object-cover"
             />
