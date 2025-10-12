@@ -86,7 +86,7 @@ const AchievementCard = ({ achievement }: { achievement: any }) => (
         </div>
         <div>
             <p className="font-semibold text-gray-800">{achievement.text}</p>
-            <p className="text-sm text-gray-600">Oleh: {achievement.student}</p>
+            <p className="text-sm text-yellow-500">Oleh: {achievement.student}</p>
         </div>
     </div>
 );

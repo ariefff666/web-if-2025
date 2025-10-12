@@ -7,20 +7,20 @@ import ContentCategorySection from '@/Components/Berita/ContentCategorySection';
 // --- DATA DUMMY (Nantinya akan diganti dengan data dari controller) ---
 const dummyNews = {
     latest: [
-        { id: 1, title: 'Jurnal Universitas Telah Terakreditasi SINTA', date: '24 Maret 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
-        { id: 2, title: 'Seminar Peluang Cloud Engineer di Era Cloud', date: '21 Mei 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
-        { id: 3, title: 'Kerja Sama Industri dengan Perusahaan Teknologi Ternama', date: '18 April 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
-        { id: 4, title: 'Jurnal Universitas Telah Terakreditasi SINTA', date: '24 Maret 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
-        { id: 5, title: 'Seminar Peluang Cloud Engineer di Era Cloud', date: '21 Mei 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
+        { id: 1, title: 'Jurnal Universitas Telah Terakreditasi SINTA', date: '24 Maret 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#', excerpt: "Sebuah pencapaian baru bagi dunia akademik universitas dengan terakreditasinya jurnal ilmiah oleh SINTA..." },
+        { id: 2, title: 'Seminar Peluang Cloud Engineer di Era Cloud', date: '21 Mei 2025', imageUrl: '/storage/berita/pelatihan1_arduino.jpg', url: '#', excerpt: "Jurusan Teknik Informatika sukses menggelar seminar nasional membahas prospek karir di bidang cloud computing..." },
+        { id: 3, title: 'Kerja Sama Industri dengan Perusahaan Teknologi Ternama', date: '18 April 2025', imageUrl: '/storage/berita/news3.jpg', url: '#', excerpt: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut..."},
+        { id: 4, title: 'Jurnal Universitas Telah Terakreditasi SINTA', date: '24 Maret 2025', imageUrl: '/storage/berita/news3.jpg', url: '#' },
+        { id: 5, title: 'Seminar Peluang Cloud Engineer di Era Cloud', date: '21 Mei 2025', imageUrl: '/storage/berita/pelatihan1_arduino.jpg', url: '#' },
         { id: 6, title: 'Kerja Sama Industri dengan Perusahaan Teknologi Ternama', date: '18 April 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
         { id: 7, title: 'Seminar Peluang Cloud Engineer di Era Cloud', date: '21 Mei 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
         { id: 8, title: 'Kerja Sama Industri dengan Perusahaan Teknologi Ternama', date: '18 April 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
     ],
     popular: [
-        { id: 10, title: 'Panduan Lengkap Meraih Beasiswa Unggulan', date: '10 Jan 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
-        { id: 11, title: 'Tips & Trik Lulus Ujian Sertifikasi Internasional', date: '15 Feb 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
-        { id: 12, title: 'Panduan Lengkap Meraih Beasiswa Unggulan', date: '10 Jan 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
-        { id: 13, title: 'Tips & Trik Lulus Ujian Sertifikasi Internasional', date: '15 Feb 2025', imageUrl: '/storage/berita/jurnal.jpg', url: '#' },
+        { id: 10, title: 'Panduan Lengkap Meraih Beasiswa Unggulan', date: '10 Jan 2025', imageUrl: '/storage/berita/news4.jpg', url: '#' },
+        { id: 11, title: 'Tips & Trik Lulus Ujian Sertifikasi Internasional', date: '15 Feb 2025', imageUrl: '/storage/berita/news4.jpg', url: '#' },
+        { id: 12, title: 'Panduan Lengkap Meraih Beasiswa Unggulan', date: '10 Jan 2025', imageUrl: '/storage/berita/pelatihan1_arduino.jpg', url: '#' },
+        { id: 13, title: 'Tips & Trik Lulus Ujian Sertifikasi Internasional', date: '15 Feb 2025', imageUrl: '/storage/berita/pelatihan1_arduino.jpg', url: '#' },
     ]
 };
 
@@ -36,8 +36,8 @@ const dummyAnnouncements = {
 
 const dummyAchievements = {
     latest: [
-        { id: 6, title: 'Juara 1 Lomba Competitive Programming Nasional', date: '15 September 2025', imageUrl: '/images/achievements/ach-1.jpg', url: '#' },
-        { id: 7, title: 'Medali Emas pada Kompetisi UI/UX Design Internasional', date: '10 September 2025', imageUrl: '/images/achievements/ach-2.jpg', url: '#' },
+        { id: 6, title: 'Juara 1 Lomba Competitive Programming Nasional', date: '15 September 2025', imageUrl: '/images/achievements/ach-1.jpg', url: '#', student_name: "Ahmad Farhan R." },
+        { id: 7, title: 'Medali Emas pada Kompetisi UI/UX Design Internasional', date: '10 September 2025', imageUrl: '/images/achievements/ach-2.jpg', url: '#', student_name: "Sheryl Jesselyn"},
     ],
     popular: [] // Contoh data populer kosong
 };

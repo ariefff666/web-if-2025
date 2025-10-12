@@ -12,6 +12,12 @@ export const LatestItemCard = ({ item }: { item: any }) => (
             <div className="p-4">
                 <p className="text-sm text-gray-500 mb-1">{item.date}</p>
                 <h3 className="font-bold text-gray-800 group-hover:text-sky-600 transition-colors line-clamp-2">{item.title}</h3>
+                {item.excerpt && (
+                    <p className="text-gray-600 text-sm line-clamp-2 mt-2">{item.excerpt}</p>
+                )}
+                {item.student_name && (
+                    <p className="text-sm text-yellow-500 mt-2">Oleh: {item.student_name}</p>
+                )}
             </div>
         </Link>
     </div>
