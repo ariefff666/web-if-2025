@@ -36,7 +36,7 @@ export type NewsAnnouncementsAchievements = {
     category: 'berita' | 'pengumuman' | 'prestasi';
     is_popular?: boolean | null;
     excerpt?: string | null;
-    body?: string | null;
+    body: string | TrustedHTML;
     image_url: string | undefined;
     student_name?: string | null;
     date?: string | null;

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
+use App\Models\NewsAnnouncementsAchievements;
 
 // Route::get('/', function () {
 //     return Inertia::render('Welcome', [
@@ -31,6 +32,8 @@ Route::prefix('profil')->name('profil.')->group(function () {
 });
 
 Route::get('/berita', [BeritaPageController::class, 'index']);
+
+Route::get('/berita/{berita:slug}', [BeritaPageController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

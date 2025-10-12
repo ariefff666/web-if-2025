@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('category');
             $table->boolean('is_popular')->nullable();
             $table->text('excerpt')->nullable();
-            $table->longText('body')->nullable();
+            $table->longText('body');
             $table->string('image_url')->nullable();
             $table->string('student_name')->nullable();
             $table->date('date')->nullable();
