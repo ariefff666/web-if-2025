@@ -29,6 +29,10 @@ Route::prefix('profil')->name('profil.')->group(function () {
     Route::get('/capaian-pembelajaran', [ProfilController::class, 'capaianPembelajaran'])->name('capaian-pembelajaran');
 });
 
+Route::get('/berita', function () {
+    return Inertia::render('Berita/Berita');
+})->name('berita');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

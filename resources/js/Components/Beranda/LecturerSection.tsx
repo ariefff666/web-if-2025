@@ -94,7 +94,7 @@ export default function LecturerSection({lecturers}: LecturerProps) {
     const swiperRef = useRef<any>(null);
 
     return (
-        <section className="bg-gradient-to-b from-sky-100 from-0% to-gray-100 to-100%">
+        <section className="bg-gradient-to-b from-sky-50 from-0% to-sky-100 to-100%">
             <div className="py-8 rounded-2xl container px-4 sm:px-6 lg:px-28 mx-auto">
                 <SectionHeader title="Dosen Pengajar" />
                 <Swiper
