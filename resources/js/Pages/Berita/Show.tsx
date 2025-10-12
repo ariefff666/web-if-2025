@@ -75,7 +75,7 @@ export default function Show({ berita, popularItems }: { berita: NewsAnnouncemen
                             </div>
                         <div className="w-full h-px bg-gray-300"></div>
                         </div>
-                        <div className="bg-gray-100 flex flex-col space-y-2 border rounded-lg shadow-sm p-4 shadow-inner">
+                        <div className="bg-gray-50 flex flex-col space-y-2 border rounded-lg shadow-sm p-4 shadow-inner">
                             {popularItems.length > 0 ? (
                                 popularItems.map(item => <PopularItemCard key={item.id} item={item} />)
                             ) : (
