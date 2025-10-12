@@ -4,38 +4,15 @@ import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
+import { Lecturer } from "@/types";
+
+interface LecturerProps {
+    lecturers: Lecturer[];
+}
+
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-// Data dummy dosen
-const lecturers = [
-  {
-    name: "Muhammad Zaka Shahzada",
-    title: "Dosen Bidang Animasi dan Multimedia",
-    photoUrl: "/images/zaka.jpg",
-  },
-  {
-    name: "Dr. Eng. Ade Candra, S.T.",
-    title: "Dosen Bidang Keahlian AI",
-    photoUrl: "/images/dosen/dosen-2.jpg",
-  },
-  {
-    name: "Prof. Dr. Indah Lestari, M.Cs.",
-    title: "Dosen Bidang Keahlian Data Science",
-    photoUrl: "/images/dosen/dosen-3.jpg",
-  },
-  {
-    name: "Budi Santoso, S.Kom., M.TI.",
-    title: "Dosen Bidang Keamanan Siber",
-    photoUrl: "/images/dosen/dosen-4.jpg",
-  },
-  {
-    name: "Citra Dewi, S.Kom., M.Kom.",
-    title: "Dosen Bidang Jaringan Komputer",
-    photoUrl: "/images/dosen/dosen-5.jpg",
-  },
-];
 
 /*
 |--------------------------------------------------------------------------
@@ -103,7 +80,7 @@ const LecturerCard = ({ name, title, photoUrl }: { name: string; title: string; 
     </div>
 );
 
-export default function LecturerSection() {
+export default function LecturerSection({lecturers}: LecturerProps) {
     /*
     |--------------------------------------------------------------------------
     | Component State & Hooks
@@ -117,7 +94,7 @@ export default function LecturerSection() {
     const swiperRef = useRef<any>(null);
 
     return (
-        <section className="bg-gradient-to-b from-sky-100 from-0% to-sky-700 to-100%">
+        <section className="bg-gradient-to-b from-sky-100 from-0% to-gray-200 to-100%">
             <div className="py-8 rounded-2xl container px-4 sm:px-6 lg:px-28 mx-auto">
                 <SectionHeader title="Dosen Pengajar" />
                 <Swiper

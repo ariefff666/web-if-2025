@@ -3,7 +3,7 @@
 import { FaQuoteRight } from 'react-icons/fa';
 
 // Variabel untuk menyimpan path gambar Ketua Prodi di folder `public`.
-const headOfProgramImagePath = '/images/zaka.jpg'; 
+const headOfProgramImagePath = '/images/dosen/hadi-purnawan.jpeg'; 
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ export default function WelcomeMessage() {
                             
                             {/* Bagian Tanda Tangan Digital */}
                             <div className="mt-8">
-                                <p className="font-bold text-gray-900">Muhammad Zakaa Shahzada, S.T., M.Kom.</p>
+                                <p className="font-bold text-gray-900">Hadipurnawan Satria, S.Kom., M.Sc., Ph.D.</p>
                                 <p className="font-semibold text-yellow-500">Ketua Program Studi Teknik Informatika</p>
                             </div>
                         </div>

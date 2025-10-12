@@ -4,14 +4,14 @@ import React from 'react';
 
 // Data dummy untuk fasilitas
 const facilities = [
-    { name: 'Ruang Kelas', imageUrl: '/images/ruang_kelas.png' },
-    { name: 'Ruang Kelas Multimedia', imageUrl: '/images/fasilitas/ruang-kelas.jpg' },
-    { name: 'Laboratorium Rekayasa Perangkat Lunak', imageUrl: '/images/fasilitas/lab-rpl.jpg' },
-    { name: 'Auditorium', imageUrl: '/images/fasilitas/auditorium.jpg' },
-    { name: 'Ruang Baca & Diskusi', imageUrl: '/images/fasilitas/ruang-baca.jpg' },
-    { name: 'Laboratorium AI & Data Science', imageUrl: '/images/fasilitas/lab-ai.jpg' },
-    { name: 'Studio Podcast', imageUrl: '/images/fasilitas/studio.jpg' },
-    { name: 'Layanan Administrasi', imageUrl: '/images/fasilitas/administrasi.jpg' },
+    { name: 'Ruang Kelas', imageUrl: '/images/fasilitas/ruang_kelas.png' },
+    { name: 'Ruang Perpustakaan', imageUrl: '/images/fasilitas/ruang_perpustakaan.png' },
+    { name: 'Laboratorium Rekayasa Perangkat Lunak', imageUrl: '/images/fasilitas/laboratorium_rekayasa_perangkat_lunak.png' },
+    { name: 'Aula', imageUrl: '/images/fasilitas/ruang_aula.png' },
+    { name: 'Layanan dan Administrasi', imageUrl: '/images/fasilitas/layanan.png' },
+    { name: 'Taman', imageUrl: '/images/fasilitas/taman.png' },
+    { name: 'Kantin', imageUrl: '/images/fasilitas/kantin.png' },
+    { name: 'Toilet', imageUrl: '/images/fasilitas/Toilet.png' },
 ];
 
 const SectionHeader = ({ title }: { title: string }) => (

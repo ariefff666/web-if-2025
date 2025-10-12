@@ -14,8 +14,7 @@ export default function Footer() {
                     {/* Kolom 1: Identitas & Media Sosial */}
                     <div className="mb-6 lg:mb-0">
                         <div className="flex items-center mb-4">
-                            <img src={logoPath} alt="Logo" className="h-10 mr-3" />
-                            <span className="font-bold text-white text-lg">Teknik Informatika UNSRI</span>
+                            <img src={logoPath} alt="Logo Teknik Informatika Unsri" className="h-10 mr-3" />
                         </div>
                         <p className="text-sm text-gray-400 mb-4">
                             Menjadi program studi unggul dalam inovasi teknologi informasi yang berkontribusi pada pembangunan bangsa.

@@ -12,3 +12,19 @@ export type PageProps<
         user: User;
     };
 };
+
+export type Testimonial = {
+    id: number;
+    name: string;
+    title: string;
+    major: string;
+    avatar: string | null; // Bisa jadi null jika tidak ada foto
+    text: string;
+};
+
+export type Lecturer = {
+    id: number;
+    name: string;
+    title: string;
+    photoUrl: string;
+}
