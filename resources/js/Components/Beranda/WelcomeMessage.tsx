@@ -3,7 +3,7 @@
 import { FaQuoteRight } from 'react-icons/fa';
 
 // Variabel untuk menyimpan path gambar Ketua Prodi di folder `public`.
-const headOfProgramImagePath = '/images/dosen/hadi-purnawan.jpeg'; 
+const headOfProgramImagePath = '/storage/dosen/hadi-purnawan.jpeg'; 
 
 /*
 |--------------------------------------------------------------------------

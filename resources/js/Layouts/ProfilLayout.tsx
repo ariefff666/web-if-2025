@@ -38,7 +38,7 @@ export default function ProfilLayout({ children }: { children: ReactNode }) {
     return (
         <GlobalLayout>
             {/* Bagian Header Halaman */}
-            <div className="bg-sky-600 text-white pt-6 pb-6">
+            {/* <div className="bg-sky-600 text-white pt-6 pb-6">
                 <div className="container mx-auto px-6 lg:px-32">
                     <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                         <h1 className="text-4xl font-bold">{title}</h1>
@@ -67,10 +67,10 @@ export default function ProfilLayout({ children }: { children: ReactNode }) {
                         </nav>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             {/* Bagian Konten Utama */}
-            <div className="container mx-auto px-6 py-12 lg:px-32">
+            <div className="container mx-auto px-6 py-12 lg:px-32 bg-gradient-to-r from-white via-sky-100 to-white">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Sidebar Navigasi */}
                     <div className="lg:col-span-1">
