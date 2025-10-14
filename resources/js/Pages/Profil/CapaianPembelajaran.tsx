@@ -5,15 +5,14 @@ import { motion } from 'framer-motion';
 export default function VisiMisi() {
     return (
         <ProfilLayout>
-            <Head title="Profil Lulusan" />
+            <Head title="CPL" />
             <motion.div
-                className="relative min-h-screen px-8 py-12 bg-white text-gray-800"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7 }}
             >
                 <h2 className="text-3xl font-bold text-sky-600 mb-6 border-l-4 border-yellow-400 pl-4">
-                    Profil Lulusan
+                    Capaian Pembelajaran Lulusan (CPL)
                 </h2>
 
                 {/* Aspek 1: Sikap dan Tata Nilai */}
