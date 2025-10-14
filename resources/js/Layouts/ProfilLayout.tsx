@@ -1,36 +1,35 @@
 import GlobalLayout from '@/Layouts/GlobalLayout';
 import { Link, usePage } from '@inertiajs/react';
-import React, { ReactNode } from 'react';
-import { motion } from 'framer-motion';
+import { ReactNode } from 'react';
 import { IconChevronRight } from '@tabler/icons-react';
 import { PageProps as InertiaPageProps } from '@inertiajs/core';
 
 // Tipe untuk breadcrumbs
-interface Breadcrumb {
-    label: string;
-    url: string;
-}
+// interface Breadcrumb {
+    // label: string;
+    // url: string;
+// }
 
 // Tipe untuk props halaman
 interface CustomPageProps extends InertiaPageProps {
     title?: string;
-    breadcrumbs?: Breadcrumb[];
+    // breadcrumbs?: Breadcrumb[];
     [key: string]: any;
 }
 
 // Komponen utama ProfilLayout
 export default function ProfilLayout({ children }: { children: ReactNode }) {
-    const pageProps = usePage<CustomPageProps>().props;
-    const title = pageProps.title || 'Profil';
-    const breadcrumbs = pageProps.breadcrumbs || [];
+    // const pageProps = usePage<CustomPageProps>().props;
+    // const title = pageProps.title || 'Profil';
+    // const breadcrumbs = pageProps.breadcrumbs || [];
     const currentUrl = usePage().url;
 
     const sidebarNavItems = [
-        { href: route('profil.visi-misi'), label: 'Visi & Misi' },
-        { href: route('profil.profil-jurusan'), label: 'Profil Jurusan' },
-        { href: route('profil.struktur-pimpinan'), label: 'Struktur Pimpinan' },
+        { href: '/visi-misi', label: 'Visi & Misi' },
+        { href: '/profil-lulusan', label: 'Profil Lulusan' },
+        { href: '/struktur-pimpinan', label: 'Struktur Pimpinan' },
         {
-            href: route('profil.capaian-pembelajaran'),
+            href: '/capaian-pembelajaran',
             label: 'Capaian Pembelajaran',
         },
     ];
@@ -80,7 +79,7 @@ export default function ProfilLayout({ children }: { children: ReactNode }) {
                             </h3>
                             <ul className="space-y-2">
                                 {sidebarNavItems.map(item => {
-                                    const isActive = currentUrl.includes(item.href.split('/').pop() || "");
+                                    const isActive = currentUrl.includes(item.href || "");
                                     return (
                                         <li key={item.label}>
                                             <Link

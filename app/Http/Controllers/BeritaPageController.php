@@ -10,15 +10,15 @@ class BeritaPageController extends Controller
     {
         return Inertia::render('Berita/Berita', [
             'news' => [
-                'latest' => NewsAnnouncementsAchievements::where('category', 'berita')->latest()->take(6)->get(),
+                'latest' => NewsAnnouncementsAchievements::where('category', 'berita')->latest()->get(),
                 'popular' => NewsAnnouncementsAchievements::where('category', 'berita')->where('is_popular', true)->latest()->take(4)->get(),
             ],
             'announcements' => [
-                'latest' => NewsAnnouncementsAchievements::where('category', 'pengumuman')->latest()->take(6)->get(),
+                'latest' => NewsAnnouncementsAchievements::where('category', 'pengumuman')->latest()->get(),
                 'popular' => NewsAnnouncementsAchievements::where('category', 'pengumuman')->where('is_popular', true)->latest()->take(4)->get(),
             ],
             'achievements' => [
-                'latest' => NewsAnnouncementsAchievements::where('category', 'prestasi')->latest()->take(6)->get(),
+                'latest' => NewsAnnouncementsAchievements::where('category', 'prestasi')->latest()->get(),
                 'popular' => NewsAnnouncementsAchievements::where('category', 'prestasi')->where('is_popular', true)->latest()->take(4)->get(),
             ],
         ]);

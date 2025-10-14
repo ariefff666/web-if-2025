@@ -12,22 +12,18 @@ class ProfilController extends Controller
     {
         return Inertia::render('Profil/VisiMisi', [
             'title' => 'Visi & Misi',
-            'breadcrumbs' => [
-                ['label' => 'Profil', 'url' => '#'],
-                ['label' => 'Visi & Misi', 'url' => route('profil.visi-misi')],
-            ]
         ]);
     }
 
     // Menampilkan halaman Profil Jurusan
-    public function profilJurusan()
+    public function profilLulusan()
     {
-        return Inertia::render('Profil/ProfilJurusan', [
-            'title' => 'Profil Jurusan',
-            'breadcrumbs' => [
-                ['label' => 'Profil', 'url' => '#'],
-                ['label' => 'Profil Jurusan', 'url' => route('profil.profil-jurusan')],
-            ]
+        return Inertia::render('Profil/ProfilLulusan', [
+            'title' => 'Profil ProfilLulusan',
+            // 'breadcrumbs' => [
+            //     ['label' => 'Profil', 'url' => '#'],
+            //     ['label' => 'Profil lulusan', 'url' => route('profil.profil-lulusan')],
+            // ]
         ]);
     }
 
@@ -36,10 +32,10 @@ class ProfilController extends Controller
     {
         return Inertia::render('Profil/StrukturPimpinan', [
             'title' => 'Struktur Pimpinan',
-            'breadcrumbs' => [
-                ['label' => 'Profil', 'url' => '#'],
-                ['label' => 'Struktur Pimpinan', 'url' => route('profil.struktur-pimpinan')],
-            ]
+            // 'breadcrumbs' => [
+            //     ['label' => 'Profil', 'url' => '#'],
+            //     ['label' => 'Struktur Pimpinan', 'url' => route('profil.struktur-pimpinan')],
+            // ]
         ]);
     }
 
@@ -48,10 +44,10 @@ class ProfilController extends Controller
     {
         return Inertia::render('Profil/CapaianPembelajaran', [
             'title' => 'Capaian Pembelajaran Lulusan',
-            'breadcrumbs' => [
-                ['label' => 'Profil', 'url' => '#'],
-                ['label' => 'Capaian Pembelajaran Lulusan', 'url' => route('profil.capaian-pembelajaran')],
-            ]
+            // 'breadcrumbs' => [
+            //     ['label' => 'Profil', 'url' => '#'],
+            //     ['label' => 'Capaian Pembelajaran Lulusan', 'url' => route('profil.capaian-pembelajaran')],
+            // ]
         ]);
     }
 }

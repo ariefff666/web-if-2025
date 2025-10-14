@@ -100,3 +100,27 @@ export const DropdownLink = ({ href, children, isActive = false }: DropdownLinkP
         </Link>
     );
 };
+
+export const DropdownLinkMobile = ({ href, children, isActive = false }: DropdownLinkProps) => {
+    return (
+        <Link
+            href={href}
+            /*
+            |--------------------------------------------------------------------------
+            | Styling untuk setiap link di dalam dropdown
+            |--------------------------------------------------------------------------
+            | - hover:bg-blue-900/50: Mengubah background saat di-hover.
+            | - hover:text-yellow-500: Mengubah warna teks saat di-hover.
+            | - before:...: Membuat pseudo-element untuk garis kuning vertikal di kiri
+            |   yang muncul saat di-hover dengan animasi 'scale-y'.
+            */
+            className={`relative block px-4 py-2 text-sm ${
+                isActive 
+                    ? 'font-bold text-yellow-500 bg-blue-900/30 before:scale-y-100' 
+                    : 'block py-2 text-gray-700 font-semibold hover:bg-gray-100 rounded'
+            } transition-colors duration-200 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-yellow-500 before:transition-transform before:duration-300`}
+        >
+            {children}
+        </Link>
+    );
+};

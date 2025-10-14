@@ -63,7 +63,7 @@ const SectionHeader = ({ title }: { title: string }) => (
 | Ini membuat kode utama lebih bersih dan mudah dibaca.
 */
 const LecturerCard = ({ name, title, photoUrl }: { name: string; title: string; photoUrl: string; }) => (
-    <div className="flex flex-col bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-full">
+    <div className="flex flex-col bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-[28rem]">
         <div className="flex flex-col gap-4">
             <img
                 src={photoUrl}

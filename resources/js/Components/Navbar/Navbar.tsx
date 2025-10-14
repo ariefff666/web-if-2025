@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { FaSearch, FaTimes, FaBars } from 'react-icons/fa';
-import NavDropdown, { DropdownLink } from './NavDropDown';
+import NavDropdown, { DropdownLink, DropdownLinkMobile } from './NavDropDown';
 
 const logoPath = '/images/logo-unsri.png'; 
 
@@ -46,10 +46,10 @@ export default function Navbar() {
                     
                     {/* Komponen Dropdown yang bisa digunakan kembali */}
                     <NavDropdown title="PROFIL">
-                        <DropdownLink href="/profil/visi-misi">VISI DAN MISI</DropdownLink>
-                        <DropdownLink href="/profil/profil-lulusan">PROFIL LULUSAN</DropdownLink>
-                        <DropdownLink href="/profil/struktur-pimpinan">STRUKTUR ORGANISASI</DropdownLink>
-                        <DropdownLink href="/profil/cpl">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
+                        <DropdownLink href="visi-misi">VISI DAN MISI</DropdownLink>
+                        <DropdownLink href="profil-lulusan">PROFIL LULUSAN</DropdownLink>
+                        <DropdownLink href="struktur-pimpinan">STRUKTUR PIMPINAN</DropdownLink>
+                        <DropdownLink href="capaian-pembelajaran">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
                     </NavDropdown>
 
                     <Link href="/berita" className={url.startsWith('/berita') ? activeNavLinkClasses : navLinkClasses}>
@@ -111,19 +111,31 @@ export default function Navbar() {
                     ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}
             >
                 <div className="flex flex-col px-4 pt-2 pb-4 space-y-2">
-                    <Link href="/" className="block py-2 text-gray-700 font-semibold hover:bg-gray-100 rounded">BERANDA</Link>
-                    <Link href="/berita" className="block py-2 text-gray-700 font-semibold hover:bg-gray-100 rounded">BERITA</Link>
+                    <p className="px-2 pt-2 text-sm font-bold text-gray-400">BERANDA</p>
+                    <DropdownLinkMobile href="/">BERANDA</DropdownLinkMobile>
+
+                    <p className="px-2 pt-2 text-sm font-bold text-gray-400">BERITA</p>
+                    <DropdownLinkMobile href="/berita">BERITA</DropdownLinkMobile>
                     
                     {/* Untuk dropdown di mobile, biasanya dibuat lebih simpel */}
                     <p className="px-2 pt-2 text-sm font-bold text-gray-400">PROFIL</p>
-                    <DropdownLink href="/visi-misi">VISI DAN MISI</DropdownLink>
-                    <DropdownLink href="/profil-lulusan">PROFIL LULUSAN</DropdownLink>
+                    <DropdownLinkMobile href="/visi-misi">VISI DAN MISI</DropdownLinkMobile>
+                    <DropdownLinkMobile href="/profil-lulusan">PROFIL LULUSAN</DropdownLinkMobile>
+                    <DropdownLinkMobile href="/struktur-pimpinan">STRUKTUR PIMPINAN</DropdownLinkMobile>
+                    <DropdownLinkMobile href="/cpl">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLinkMobile>
                     
                     <p className="px-2 pt-2 text-sm font-bold text-gray-400">AKADEMIK</p>
-                    <DropdownLink href="/kurikulum">KURIKULUM</DropdownLink>
-                    <DropdownLink href="/jadwal">JADWAL</DropdownLink>
+                    <DropdownLinkMobile href="/kurikulum">KURIKULUM</DropdownLinkMobile>
+                    <DropdownLinkMobile href="/jadwal">JADWAL</DropdownLinkMobile>
+                    <DropdownLinkMobile href="/dokumen">DOKUMEN</DropdownLinkMobile>
                     
-                    {/* ... Anda bisa menambahkan link lainnya di sini ... */}
+                    <p className="px-2 pt-2 text-sm font-bold text-gray-400">PANDUAN DAN SOP</p>
+                    <DropdownLinkMobile href='/prosedur-tugas-akhir'>PROSEDUR TUGAS AKHIR</DropdownLinkMobile>
+                    <DropdownLinkMobile href='/panduan-tugas-akhir'>PANDUAN TUGAS AKHIR</DropdownLinkMobile>
+                    <DropdownLinkMobile href='/prosedur-kerja-praktek'>PROSEDUR KERJA PRAKTEK</DropdownLinkMobile>
+                    <DropdownLinkMobile href='/panduan-kerja-praktek'>PANDUAN KERJA PRAKTEK</DropdownLinkMobile>
+                    <DropdownLinkMobile href='/sop-mbkm'>SOP MBKM</DropdownLinkMobile>
+
                 </div>
             </div>
 
