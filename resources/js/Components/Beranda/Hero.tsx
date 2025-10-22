@@ -56,7 +56,7 @@ export default function Hero() {
             | didorong ke bawah dengan 'sm:flex sm:items-end'.
             */}
             <div className="relative sm:absolute sm:inset-0 sm:flex sm:items-end">
-                <div className="w-full bg-sky-600 sm:bg-sky-600/75">
+                <div className="w-full bg-gray-400 sm:bg-gray-400/85">
                     <div className="container mx-auto w-full px-4 sm:px-6 lg:px-32 py-12">
                         {/*
                         | Layout Grid untuk Konten

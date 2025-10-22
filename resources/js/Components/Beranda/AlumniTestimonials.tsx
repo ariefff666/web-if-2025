@@ -76,7 +76,7 @@ export default function AlumniTestimonials({ testimonials }: TestimonialProps) {
     const [isEnd, setIsEnd] = useState(false);
 
     return (
-        <section className="relative py-8 bg-gradient-to-t from-sky-50 from-30% to-white to-100%">
+        <section className="relative py-8 bg-gradient-to-t from-gray-50 from-30% to-white to-100%">
             <div className="container mx-auto px-4 sm:px-6 lg:px-28 py-8 md:py-10 lg:py-8">
                 <SectionHeader 
                     title="Apa Kata Alumni" 

@@ -2,7 +2,7 @@ import { FaPhoneAlt, FaEnvelope, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 export default function TopHeader() {
     return (
-        <header className="bg-sky-600 text-white text-sm hidden sm:flex">
+        <header className="bg-gray-400 text-white text-sm hidden sm:flex">
             <div className="container mx-auto py-2 px-4 sm:px-6 lg:px-32 flex justify-between items-center">
                 {/* Bagian Kiri: Info Kontak */}
                 <div className="flex items-center space-x-6">

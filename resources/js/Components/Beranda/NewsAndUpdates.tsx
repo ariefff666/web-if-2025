@@ -38,7 +38,7 @@ const SectionHeader = ({ title }: { title: string }) => {
             <div className="flex-shrink-0 mr-4 sm:mr-6">
                 {/* Ukuran teks diubah menjadi responsif */}
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800 whitespace-nowrap">{title}</h2>
-                <div className={`h-1 bg-sky-600 mt-2 rounded w-full`}></div>
+                <div className={`h-1 bg-amber-400 mt-2 rounded w-full`}></div>
             </div>
             <div className="w-full h-px bg-gray-300"></div>
         </div>
@@ -55,11 +55,11 @@ const NewsCard = ({ news }: { news: any }) => (
     <div className="bg-white rounded-lg shadow-md overflow-hidden group">
         <div className="relative">
             <img src={news.imageUrl} alt={news.title} className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105" />
-            <span className="absolute top-4 left-4 bg-sky-600 text-white text-xs font-bold px-2 py-1 rounded">{news.category}</span>
+            <span className="absolute top-4 left-4 bg-amber-400 text-white text-xs font-bold px-2 py-1 rounded">{news.category}</span>
         </div>
         <div className="p-6">
             <p className="text-sm text-gray-500 mb-2">{news.date}</p>
-            <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-sky-600 transition-colors">
+            <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-amber-400 transition-colors">
                 <Link href={`/berita/${news.id}`}>{news.title}</Link>
             </h3>
             <p className="text-gray-600 text-sm line-clamp-2">{news.excerpt}</p>
@@ -69,8 +69,8 @@ const NewsCard = ({ news }: { news: any }) => (
 
 const AnnouncementCard = ({ announcement }: { announcement: any }) => (
     <div className="flex items-start space-x-4 p-4 hover:bg-gray-50 border rounded-lg bg-white shadow-sm transition-colors">
-        <div className="flex-shrink-0 bg-sky-100 p-3 rounded-full">
-            <FaBullhorn className="text-sky-600" />
+        <div className="flex-shrink-0 bg-amber-100 p-3 rounded-full">
+            <FaBullhorn className="text-amber-400" />
         </div>
         <div>
             <p className="text-gray-700">{announcement.text}</p>

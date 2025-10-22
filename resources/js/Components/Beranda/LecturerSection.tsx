@@ -71,7 +71,7 @@ const LecturerCard = ({ name, title, photoUrl }: { name: string; title: string; 
                 className="w-full h-72 object-cover object-center rounded-xl"
             />
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <h3 className="text-lg font-bold border-l-4 border-sky-600 pl-3">
+                <h3 className="text-lg font-bold border-l-4 border-gray-400 pl-3">
                     {name}
                 </h3>
             </div>
@@ -94,7 +94,7 @@ export default function LecturerSection({lecturers}: LecturerProps) {
     const swiperRef = useRef<any>(null);
 
     return (
-        <section className="bg-gradient-to-b from-sky-50 from-0% to-sky-100 to-100%">
+        <section className="bg-gradient-to-b from-gray-50 from-0% to-gray-100 to-100%">
             <div className="py-8 rounded-2xl container px-4 sm:px-6 lg:px-28 mx-auto">
                 <SectionHeader title="Dosen Pengajar" />
                 <Swiper
