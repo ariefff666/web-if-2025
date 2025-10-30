@@ -3,24 +3,21 @@
 import { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
-
 import { Lecturer } from "@/types";
-
-interface LecturerProps {
-    lecturers: Lecturer[];
-}
+import { Link } from "@inertiajs/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+interface LecturerProps {
+    lecturers: Lecturer[];
+}
+
 /*
 |--------------------------------------------------------------------------
 | Komponen SectionHeader
 |--------------------------------------------------------------------------
-| Header untuk section yang mencakup judul dan tombol navigasi kustom
-| untuk Swiper. Tombol ini memiliki class name spesifik yang akan di-target
-| oleh Swiper untuk fungsionalitasnya.
 */
 const SectionHeader = ({ title }: { title: string }) => (
     <div>
@@ -59,8 +56,6 @@ const SectionHeader = ({ title }: { title: string }) => (
 |--------------------------------------------------------------------------
 | Komponen LecturerCard
 |--------------------------------------------------------------------------
-| Komponen terpisah untuk menampilkan kartu profil setiap dosen.
-| Ini membuat kode utama lebih bersih dan mudah dibaca.
 */
 const LecturerCard = ({ name, title, photoUrl }: { name: string; title: string; photoUrl: string; }) => (
     <div className="flex flex-col bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-[28rem]">
@@ -80,16 +75,7 @@ const LecturerCard = ({ name, title, photoUrl }: { name: string; title: string; 
     </div>
 );
 
-export default function LecturerSection({lecturers}: LecturerProps) {
-    /*
-    |--------------------------------------------------------------------------
-    | Component State & Hooks
-    |--------------------------------------------------------------------------
-    | - paginationEl & setPaginationEl: Hook 'useState' untuk menyimpan referensi 
-    |   ke elemen DOM yang akan menjadi wadah pagination.
-    | - swiperRef: Hook 'useRef' untuk menyimpan instance Swiper, memungkinkan
-    |   kontrol manual jika diperlukan (saat ini belum digunakan).
-    */
+export default function LecturerSection({ lecturers }: LecturerProps) {
     const [paginationEl, setPaginationEl] = useState<HTMLElement | null>(null);
     const swiperRef = useRef<any>(null);
 
@@ -97,13 +83,13 @@ export default function LecturerSection({lecturers}: LecturerProps) {
         <section className="bg-gradient-to-b from-gray-50 from-0% to-gray-100 to-100%">
             <div className="py-8 rounded-2xl container px-4 sm:px-6 lg:px-28 mx-auto">
                 <SectionHeader title="Dosen Pengajar" />
+                
                 <Swiper
                     modules={[Pagination, Autoplay, Navigation]}
                     spaceBetween={30}
                     slidesPerView={1}
                     pagination={{ clickable: true, el: paginationEl }}
                     navigation={{
-                        // Menghubungkan tombol kustom dengan navigasi Swiper
                         prevEl: ".swiper-button-prev-custom",
                         nextEl: ".swiper-button-next-custom",
                     }}
@@ -117,7 +103,6 @@ export default function LecturerSection({lecturers}: LecturerProps) {
                         768: { slidesPerView: 3 },
                         1024: { slidesPerView: 4 },
                     }}
-                    // Menyimpan instance Swiper ke dalam ref
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
@@ -135,10 +120,17 @@ export default function LecturerSection({lecturers}: LecturerProps) {
                 </Swiper>
 
                 {/* Wadah kustom untuk pagination (titik-titik) */}
-                <div
-                    ref={setPaginationEl}
-                    className="relative mt-8 flex justify-center"
-                />
+                <div ref={setPaginationEl} className="relative mt-8 flex justify-center" />
+
+                {/* Tombol "Selengkapnya" */}
+                <div className="flex justify-end mt-2">
+                    <Link
+                        href="/profil-dosen"
+                        className="swiper-button-prev-custom bg-yellow-400 hover:bg-yellow-500 text-white p-3 rounded-sm shadow-md transition"
+                    >
+                        Selengkapnya
+                    </Link>
+                </div>
             </div>
         </section>
     );

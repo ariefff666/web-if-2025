@@ -49,6 +49,7 @@ export default function Navbar() {
                         <DropdownLink href="visi-misi">VISI DAN MISI</DropdownLink>
                         <DropdownLink href="profil-lulusan">PROFIL LULUSAN</DropdownLink>
                         <DropdownLink href="struktur-pimpinan">STRUKTUR PIMPINAN</DropdownLink>
+                        <DropdownLink href="profil-dosen">PROFIL DOSEN</DropdownLink>
                         <DropdownLink href="capaian-pembelajaran">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
                     </NavDropdown>
 

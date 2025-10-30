@@ -15,6 +15,26 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'primary': '#9ca3af',
+                'secondary': '#eab308',
+            },
+            keyframes: {
+                fadeIn: {
+                  '0%': { opacity: 0, transform: 'translateY(-4px)' },
+                  '100%': { opacity: 1, transform: 'translateY(0)' },
+                },
+            },
+            animation: {
+                fadeIn: 'fadeIn 0.15s ease-out',
+            },
+            fadeInUp: {
+                '0%': { opacity: 0, transform: 'translateY(-6px)' },
+                '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+            animation: {
+                fadeInUp: 'fadeInUp 0.2s ease-out',
+            },
         },
     },
 

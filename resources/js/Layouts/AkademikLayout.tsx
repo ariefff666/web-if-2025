@@ -4,70 +4,24 @@ import { ReactNode } from 'react';
 import { IconChevronRight } from '@tabler/icons-react';
 import { PageProps as InertiaPageProps } from '@inertiajs/core';
 
-// Tipe untuk breadcrumbs
-// interface Breadcrumb {
-    // label: string;
-    // url: string;
-// }
-
-// Tipe untuk props halaman
 interface CustomPageProps extends InertiaPageProps {
     title?: string;
-    // breadcrumbs?: Breadcrumb[];
     [key: string]: any;
 }
 
-// Komponen utama ProfilLayout
 export default function ProfilLayout({ children }: { children: ReactNode }) {
-    // const pageProps = usePage<CustomPageProps>().props;
-    // const title = pageProps.title || 'Profil';
-    // const breadcrumbs = pageProps.breadcrumbs || [];
     const currentUrl = usePage().url;
 
     const sidebarNavItems = [
-        { href: '/visi-misi', label: 'Visi & Misi' },
-        { href: '/profil-lulusan', label: 'Profil Lulusan' },
-        { href: '/struktur-pimpinan', label: 'Struktur Pimpinan' },
-        { href: '/profil-dosen', label: 'Profil Dosen' },
-        { href: '/capaian-pembelajaran', label: 'Capaian Pembelajaran' },
+        { href: '/kurikulum', label: 'Kurikulum' },
+        { href: '/jadwal', label: 'Jadwal' },
+        { href: '/dokumen', label: 'Dokumen' },
     ];
 
     return (
         <GlobalLayout>
-            {/* Bagian Header Halaman */}
-            {/* <div className="bg-sky-600 text-white pt-6 pb-6">
-                <div className="container mx-auto px-6 lg:px-32">
-                    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                        <h1 className="text-4xl font-bold">{title}</h1>
-                        <nav className="text-sm font-medium mt-2 md:mt-0">
-                            <ol className="list-none p-0 inline-flex">
-                                <li className="flex items-center">
-                                    <Link href="/" className="hover:underline">
-                                        Beranda
-                                    </Link>
-                                </li>
-                                {breadcrumbs.map((crumb, index) => (
-                                    <li key={index} className="flex items-center">
-                                        <IconChevronRight size={18} className="mx-2" />
-                                        {index === breadcrumbs.length - 1 ? (
-                                            <span className="text-yellow-400">
-                                                {crumb.label}
-                                            </span>
-                                        ) : (
-                                            <Link href={crumb.url} className="hover:underline">
-                                                {crumb.label}
-                                            </Link>
-                                        )}
-                                    </li>
-                                ))}
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div> */}
-
             {/* Bagian Konten Utama */}
-            <div className="container mx-auto px-6 py-12 lg:px-32 bg-gradient-to-r from-white via-sky-100 to-white">
+            <div className="container mx-auto px-6 py-12 lg:px-32 bg-gradient-to-r from-white via-gray-100 to-white">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Sidebar Navigasi */}
                     <div className="lg:col-span-1">
@@ -84,8 +38,8 @@ export default function ProfilLayout({ children }: { children: ReactNode }) {
                                                 href={item.href}
                                                 className={`group relative flex justify-between items-center w-full text-left px-4 py-2 rounded-md overflow-hidden transition-all duration-300 ${
                                                     isActive
-                                                        ? 'bg-sky-50 font-bold text-yellow-500'
-                                                        : 'text-gray-700 hover:bg-sky-50'
+                                                        ? 'bg-gray-100 font-bold text-yellow-500'
+                                                        : 'text-gray-700 hover:bg-gray-100'
                                                 }`}
                                             >
                                                 {/* Vertical yellow indicator line */}

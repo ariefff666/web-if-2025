@@ -22,7 +22,7 @@ export default function WelcomeMessage() {
         | Wadah utama untuk section. Diberi warna latar belakang dan padding
         | untuk memisahkannya secara visual dari section lain di halaman.
         */
-        <section className="bg-gradient-to-b from-gray-400 from-0% to-white to-100% py-8 px-4">
+        <section className="bg-gradient-to-b from-primary from-0% to-white to-100% py-8 px-4">
             <div className="container mx-auto px-4 sm:px-6 lg:px-32">
                 {/* Kartu utama yang membungkus semua konten */}
                 <div className="relative bg-white rounded-2xl shadow-lg p-12 lg:p-16">

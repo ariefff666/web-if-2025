@@ -57,7 +57,7 @@ export default function NavDropdown({ title, children, isActive = false }: NavDr
             | Ini yang menciptakan efek animasi fade-in dan slide-down yang mulus.
             */}
             <div 
-                className={`absolute top-full mt-4 w-56 rounded-md shadow-lg bg-sky-600 z-50 transition-all duration-300 ease-in-out
+                className={`absolute top-full mt-4 w-56 rounded-md shadow-lg bg-gray-400 z-50 transition-all duration-300 ease-in-out
                     ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
             >
                 <div className="py-1">
@@ -92,8 +92,8 @@ export const DropdownLink = ({ href, children, isActive = false }: DropdownLinkP
             */
             className={`relative block px-4 py-2 text-sm ${
                 isActive 
-                    ? 'font-bold text-yellow-500 bg-blue-900/30 before:scale-y-100' 
-                    : 'text-gray-200 hover:bg-blue-900/50 hover:text-yellow-500 before:scale-y-0 hover:before:scale-y-100'
+                    ? 'font-bold text-yellow-500 bg-gray-900/30 before:scale-y-100' 
+                    : 'text-gray-200 hover:bg-gray-900/50 hover:text-yellow-500 before:scale-y-0 hover:before:scale-y-100'
             } transition-colors duration-200 before:content-[''] before:absolute before:left-0 before:top-0 before:h-full before:w-1 before:bg-yellow-500 before:transition-transform before:duration-300`}
         >
             {children}

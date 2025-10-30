@@ -12,6 +12,7 @@ export default function VisiMisi() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7 }}
             >
+                <h2 className="text-3xl font-bold text-sky-600 mb-6 border-l-4 border-yellow-400 pl-4">Struktur Pimpinan</h2>
                 <img
                     src="/storage/struktur-pimpinan/struktur-pimpinan.png" // Ganti dengan path gambar Anda
                     alt="Deskripsi gambar yang relevan"

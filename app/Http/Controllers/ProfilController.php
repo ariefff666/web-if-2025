@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Lecturer;
 
 class ProfilController extends Controller
 {
@@ -48,6 +49,13 @@ class ProfilController extends Controller
             //     ['label' => 'Profil', 'url' => '#'],
             //     ['label' => 'Capaian Pembelajaran Lulusan', 'url' => route('profil.capaian-pembelajaran')],
             // ]
+        ]);
+    }
+
+    public function dosen(){
+        $lecturers = Lecturer::latest()->get();
+        return Inertia::render('Profil/Dosen', [
+            'lecturers' => $lecturers,
         ]);
     }
 }
