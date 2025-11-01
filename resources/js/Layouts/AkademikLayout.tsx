@@ -27,7 +27,7 @@ export default function ProfilLayout({ children }: { children: ReactNode }) {
                     <div className="lg:col-span-1">
                         <div className="bg-white p-6 rounded-lg shadow-md sticky top-24">
                             <h3 className="text-xl font-bold text-sky-600 mb-4">
-                                Navigasi Profil
+                                Navigasi Akademik
                             </h3>
                             <ul className="space-y-2">
                                 {sidebarNavItems.map(item => {

@@ -19,7 +19,7 @@ const SectionHeader = ({ title }: { title: string }) => (
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">{title}</h2>
         <div className="relative w-84 h-1 mx-auto my-4">
             <div className="absolute top-1/2 left-0 w-full h-px bg-gray-300"></div>
-            <div className="relative w-24 h-1 bg-amber-400 mx-auto rounded"></div>
+            <div className="relative w-24 h-1 bg-sky-600 mx-auto rounded"></div>
         </div>
         <p className="text-lg text-gray-600 mt-2">Menyediakan lingkungan belajar yang modern dan kondusif.</p>
     </div>

@@ -6,14 +6,14 @@ import NewsAndUpdates from '@/Components/Beranda/NewsAndUpdates';
 import AlumniTestimonials from '@/Components/Beranda/AlumniTestimonials';
 import LecturerSection from '@/Components/Beranda/LecturerSection';
 import Facilities from '@/Components/Beranda/Facilities';
-import { Testimonial, Lecturer } from '@/types';
+import { Testimonial, Lecturer, HeroData, WelcomeMessageData } from '@/types';
 
-export default function Beranda({testimonials, lecturers}: {testimonials: Testimonial[], lecturers: Lecturer[]}) {
+export default function Beranda({testimonials, lecturers, heroData, welcomeMessageData}: {testimonials: Testimonial[], lecturers: Lecturer[],heroData: HeroData, welcomeMessageData: WelcomeMessageData}) {
     return (
         <GlobalLayout>
             <Head title="Beranda" /> {/* yellow */}
-            <Hero />
-            <WelcomeMessage />
+            <Hero heroData={heroData}/>
+            <WelcomeMessage welcomeMessageData={welcomeMessageData}/>
             <NewsAndUpdates />
             <AlumniTestimonials testimonials={testimonials || []}/>
             <LecturerSection lecturers={lecturers || []} />

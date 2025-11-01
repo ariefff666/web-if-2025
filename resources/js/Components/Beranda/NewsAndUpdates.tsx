@@ -36,9 +36,8 @@ const SectionHeader = ({ title }: { title: string }) => {
     return (
         <div className="flex items-center mb-6">
             <div className="flex-shrink-0 mr-4 sm:mr-6">
-                {/* Ukuran teks diubah menjadi responsif */}
                 <h2 className="text-2xl md:text-3xl font-bold text-gray-800 whitespace-nowrap">{title}</h2>
-                <div className={`h-1 bg-amber-400 mt-2 rounded w-full`}></div>
+                <div className={`h-1 bg-sky-600 mt-2 rounded w-full`}></div>
             </div>
             <div className="w-full h-px bg-gray-300"></div>
         </div>
@@ -69,8 +68,8 @@ const NewsCard = ({ news }: { news: any }) => (
 
 const AnnouncementCard = ({ announcement }: { announcement: any }) => (
     <div className="flex items-start space-x-4 p-4 hover:bg-gray-50 border rounded-lg bg-white shadow-sm transition-colors">
-        <div className="flex-shrink-0 bg-amber-100 p-3 rounded-full">
-            <FaBullhorn className="text-amber-400" />
+        <div className="flex-shrink-0 bg-sky-100 p-3 rounded-full">
+            <FaBullhorn className="text-sky-600" />
         </div>
         <div>
             <p className="text-gray-700">{announcement.text}</p>

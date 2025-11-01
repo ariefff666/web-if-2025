@@ -14,11 +14,6 @@ interface LecturerProps {
     lecturers: Lecturer[];
 }
 
-/*
-|--------------------------------------------------------------------------
-| Komponen SectionHeader
-|--------------------------------------------------------------------------
-*/
 const SectionHeader = ({ title }: { title: string }) => (
     <div>
         <div className="flex justify-between items-center">
@@ -52,11 +47,6 @@ const SectionHeader = ({ title }: { title: string }) => (
     </div>
 );
 
-/*
-|--------------------------------------------------------------------------
-| Komponen LecturerCard
-|--------------------------------------------------------------------------
-*/
 const LecturerCard = ({ name, title, photoUrl }: { name: string; title: string; photoUrl: string; }) => (
     <div className="flex flex-col bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 h-[28rem]">
         <div className="flex flex-col gap-4">
@@ -80,7 +70,7 @@ export default function LecturerSection({ lecturers }: LecturerProps) {
     const swiperRef = useRef<any>(null);
 
     return (
-        <section className="bg-gradient-to-b from-gray-50 from-0% to-gray-100 to-100%">
+        <section className="bg-gradient-to-b from-sky-50 from-0% to-sky-100 to-100%">
             <div className="py-8 rounded-2xl container px-4 sm:px-6 lg:px-28 mx-auto">
                 <SectionHeader title="Dosen Pengajar" />
                 

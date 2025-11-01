@@ -13,6 +13,23 @@ export type PageProps<
     };
 };
 
+export type HeroData = {
+    id: number;
+    title: string;
+    paragraph_1: string;
+    paragraph_2: string;
+    hero_image_path: string;
+}
+
+export type WelcomeMessageData ={
+    id: number;
+    title: string;
+    paragraph_1: string;
+    paragraph_2: string;
+    kajur_image_path: string;
+    name: string;
+}
+
 export type Testimonial = {
     id: number;
     name: string;
