@@ -7,6 +7,7 @@ use App\Models\Lecturer;
 use Inertia\Inertia;
 use App\Models\HeroSection;
 use App\Models\WelcomeMessage;
+use App\Models\NewsAnnouncementsAchievements;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,9 @@ class HomeController extends Controller
             'lecturers' => $lecturers,
             'heroData' => $heroData,
             'welcomeMessageData' => $welcomeMessageData,
+            'news' => NewsAnnouncementsAchievements::where('category', 'berita')->latest()->take(2)->get(),
+            'announcements' => NewsAnnouncementsAchievements::where('category', 'pengumuman')->latest()->take(3)->get(),
+            'achievements' => NewsAnnouncementsAchievements::where('category', 'prestasi')->latest()->take(3)->get(),
         ]);
     }
 }

@@ -1,5 +1,3 @@
-// resources/js/Components/ContentCategorySection.tsx
-
 import { NewsAnnouncementsAchievements } from '@/types';
 import { LatestItemCard, PopularItemCard } from './ContentCards';
 

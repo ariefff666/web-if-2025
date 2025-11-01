@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import type { Swiper as SwiperCore } from 'swiper';
 
-// Impor file CSS Swiper
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -18,13 +17,6 @@ interface TestimonialProps {
     testimonials: Testimonial[];
 }
 
-/*
-|--------------------------------------------------------------------------
-| Komponen SectionHeader
-|--------------------------------------------------------------------------
-| Perubahan: Tombol navigasi sekarang menerima 'ref' dari instance Swiper
-| untuk mengontrol slide secara manual. Ini lebih andal.
-*/
 const SectionHeader = ({ title, swiperRef, isBeginning, isEnd }: { 
     title: string, 
     swiperRef: React.MutableRefObject<SwiperCore | null>,

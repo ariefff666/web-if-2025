@@ -1,11 +1,9 @@
-// resources/js/Components/Navbar.tsx
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { FaSearch, FaTimes, FaBars } from 'react-icons/fa';
 import NavDropdown, { DropdownLink, DropdownLinkMobile } from './NavDropDown';
 
-const logoPath = '/images/logo-unsri.png'; 
+const logoPath = '/storage/LOGO_UNSRI_IF.png'; 
 
 export default function Navbar() {
     const { url } = usePage();
