@@ -1,18 +1,4 @@
-// resources/js/Components/Beranda/FacilitiesSection.tsx
-
-import React from 'react';
-
-// Data dummy untuk fasilitas
-const facilities = [
-    { name: 'Ruang Kelas', imageUrl: '/storage/fasilitas/ruang_kelas.png' },
-    { name: 'Ruang Perpustakaan', imageUrl: '/storage/fasilitas/ruang_perpustakaan.png' },
-    { name: 'Laboratorium Rekayasa Perangkat Lunak', imageUrl: '/storage/fasilitas/laboratorium_rekayasa_perangkat_lunak.png' },
-    { name: 'Aula', imageUrl: '/storage/fasilitas/ruang_aula.png' },
-    { name: 'Layanan dan Administrasi', imageUrl: '/storage/fasilitas/layanan.png' },
-    { name: 'Taman', imageUrl: '/storage/fasilitas/taman.png' },
-    { name: 'Kantin', imageUrl: '/storage/fasilitas/kantin.png' },
-    { name: 'Toilet', imageUrl: '/storage/fasilitas/Toilet.png' },
-];
+import { FacilitiesData } from '@/types';
 
 const SectionHeader = ({ title }: { title: string }) => (
     <div className="text-center mb-12">
@@ -25,17 +11,17 @@ const SectionHeader = ({ title }: { title: string }) => (
     </div>
 );
 
-export default function Facilities() {
+export default function Facilities({facilitiesData} : {facilitiesData: FacilitiesData[]}) {
     return (
         <section className="bg-white py-8">
             <div className="container mx-auto px-4 sm:px-6 lg:px-32">
                 <SectionHeader title="Fasilitas Jurusan" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {facilities.map((facility, index) => (
+                    {facilitiesData.map((facility, index) => (
                         <div key={index} className="relative group overflow-hidden shadow-lg">
                             <img 
-                                src={facility.imageUrl} 
+                                src={facility.facilities_image_path} 
                                 alt={facility.name}
                                 className="w-full h-64 object-cover transform transition-transform duration-500 ease-in-out group-hover:scale-110"
                             />

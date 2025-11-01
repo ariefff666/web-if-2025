@@ -6,16 +6,17 @@ import NewsAndUpdates from '@/Components/Beranda/NewsAndUpdates';
 import AlumniTestimonials from '@/Components/Beranda/AlumniTestimonials';
 import LecturerSection from '@/Components/Beranda/LecturerSection';
 import Facilities from '@/Components/Beranda/Facilities';
-import { Testimonial, Lecturer, HeroData, WelcomeMessageData, NewsAnnouncementsAchievements } from '@/types';
+import { Testimonial, Lecturer, HeroData, WelcomeMessageData, NewsAnnouncementsAchievements, FacilitiesData } from '@/types';
 
-export default function Beranda({ testimonials, lecturers, heroData, welcomeMessageData, news, announcements, achievements }: { 
+export default function Beranda({ testimonials, lecturers, heroData, welcomeMessageData, news, announcements, achievements, facilitiesData }: { 
     testimonials: Testimonial[], 
     lecturers: Lecturer[],
-    heroData: HeroData, // (Sudah diperbaiki dari sebelumnya)
-    welcomeMessageData: WelcomeMessageData, // (Sudah diperbaiki dari sebelumnya)
+    heroData: HeroData,
+    welcomeMessageData: WelcomeMessageData,
     news: NewsAnnouncementsAchievements[], 
     announcements: NewsAnnouncementsAchievements[], 
-    achievements: NewsAnnouncementsAchievements[] 
+    achievements: NewsAnnouncementsAchievements[],
+    facilitiesData: FacilitiesData[]
 }) {
     return (
         <GlobalLayout>
@@ -25,7 +26,7 @@ export default function Beranda({ testimonials, lecturers, heroData, welcomeMess
             <NewsAndUpdates newsData={{ news, announcements, achievements }}/>
             <AlumniTestimonials testimonials={testimonials || []}/>
             <LecturerSection lecturers={lecturers || []} />
-            <Facilities />
+            <Facilities facilitiesData={facilitiesData || []} />
         </GlobalLayout>
     );
 }

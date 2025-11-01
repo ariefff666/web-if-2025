@@ -10,8 +10,8 @@ export type PageProps<
 > = T & {
     auth: {
         user: User;
-    };
-};
+    }
+}
 
 export type HeroData = {
     id: number;
@@ -35,9 +35,9 @@ export type Testimonial = {
     name: string;
     title: string;
     major: string;
-    avatar: string | null; // Bisa jadi null jika tidak ada foto
+    avatar: string | null;
     text: string;
-};
+}
 
 export type Lecturer = {
     id: number;
@@ -60,4 +60,10 @@ export type NewsAnnouncementsAchievements = {
     published_at?: string | null;
     created_at: string;
     updated_at: string;
-};
+}
+
+export type FacilitiesData = {
+    id: number;
+    name: string;
+    facilities_image_path: string;
+}

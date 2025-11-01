@@ -2,38 +2,6 @@ import { Link } from '@inertiajs/react';
 import { FaCalendarAlt, FaBullhorn, FaTrophy } from 'react-icons/fa';
 import { NewsAnnouncementsAchievements } from '@/types';
 
-
-// const dummyNews = [
-//     {
-//         id: 1,
-//         title: "Jurnal Universitas Sriwijaya Telah Terakreditasi SINTA",
-//         date: "Senin, 24 Maret 2025",
-//         imageUrl: "/storage/berita/jurnal.jpg",
-//         category: "Akademik",
-//         excerpt: "Sebuah pencapaian baru bagi dunia akademik universitas dengan terakreditasinya jurnal ilmiah oleh SINTA..."
-//     },
-//     {
-//         id: 2,
-//         title: "Seminar 'Peluang Cloud Engineer di Era Cloud'",
-//         date: "Selasa, 21 Mei 2025",
-//         imageUrl: "/storage/berita/pelatihan1_arduino.jpg",
-//         category: "Seminar",
-//         excerpt: "Jurusan Teknik Informatika sukses menggelar seminar nasional membahas prospek karir di bidang cloud computing..."
-//     },
-// ];
-
-// const dummyAnnouncements = [
-//     { id: 1, text: "Pendaftaran Program Hibah Penelitian BIMA telah dibuka.", date: "29 Oktober 2025" },
-//     { id: 2, text: "Jadwal Ujian Akhir Semester Ganjil 2025/2026.", date: "25 Oktober 2025" },
-//     { id: 3, text: "Batas akhir pengisian KRS semester genap.", date: "20 Oktober 2025" },
-// ];
-
-// const dummyAchievements = [
-//     { id: 1, text: "Juara 1 Lomba Competitive Programming tingkat Nasional.", student: "Ahmad Farhan R." },
-//     { id: 2, text: "Medali Emas pada kompetisi UI/UX Design Internasional.", student: "Sheryl Jesselyn" },
-//     { id: 3, text: "Finalis Gemastik XVI cabang Keamanan Siber.", student: "Grimaldie William" },
-// ];
-
 interface NewsAndUpdatesProps {
   newsData: {
     news: NewsAnnouncementsAchievements[];
@@ -145,7 +113,14 @@ export default function NewsAndUpdates({ newsData }: NewsAndUpdatesProps) {
                             )}
                         </div>
                     </div>
-
+                </div>
+                <div className="flex justify-end mt-8">
+                    <Link
+                        href="/berita"
+                        className="swiper-button-prev-custom bg-yellow-400 hover:bg-yellow-500 text-white p-3 rounded-sm shadow-md transition"
+                    >
+                        Selengkapnya
+                    </Link>
                 </div>
             </div>
         </section>
