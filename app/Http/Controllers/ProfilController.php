@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Lecturer;
+use App\Models\Visi;
+use App\Models\Misi;
 
 class ProfilController extends Controller
 {
     // Menampilkan halaman Visi & Misi
     public function visiMisi()
     {
+        $visis = Visi::first();
+        $misis = Misi::latest()->get();
         return Inertia::render('Profil/VisiMisi', [
             'title' => 'Visi & Misi',
+            'visis' => $visis,
+            'misis' => $misis,
         ]);
     }
 

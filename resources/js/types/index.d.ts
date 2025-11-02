@@ -67,3 +67,13 @@ export type FacilitiesData = {
     name: string;
     facilities_image_path: string;
 }
+
+export type Visi = {
+    id: number;
+    content: string;
+}
+
+export type Misi = {
+    id: number;
+    content: string;
+}
