@@ -44,11 +44,11 @@ export default function Navbar() {
                     
                     {/* Komponen Dropdown yang bisa digunakan kembali */}
                     <NavDropdown title="PROFIL">
-                        <DropdownLink href="visi-misi">VISI DAN MISI</DropdownLink>
-                        <DropdownLink href="profil-lulusan">PROFIL LULUSAN</DropdownLink>
-                        <DropdownLink href="struktur-pimpinan">STRUKTUR PIMPINAN</DropdownLink>
-                        <DropdownLink href="profil-dosen">PROFIL DOSEN</DropdownLink>
-                        <DropdownLink href="capaian-pembelajaran">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
+                        <DropdownLink href="/visi-misi">VISI DAN MISI</DropdownLink>
+                        <DropdownLink href="/profil-lulusan">PROFIL LULUSAN</DropdownLink>
+                        <DropdownLink href="/struktur-pimpinan">STRUKTUR PIMPINAN</DropdownLink>
+                        <DropdownLink href="/profil-dosen">PROFIL DOSEN</DropdownLink>
+                        <DropdownLink href="/capaian-pembelajaran">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLink>
                     </NavDropdown>
 
                     <Link href="/berita" className={url.startsWith('/berita') ? activeNavLinkClasses : navLinkClasses}>
@@ -62,12 +62,12 @@ export default function Navbar() {
                     </NavDropdown>
                     
                     <NavDropdown title="PANDUAN DAN SOP">
-                        <DropdownLink href="/prosedur-tugas-akhir">PROSEDUR TUGAS AKHIR</DropdownLink>
-                        <DropdownLink href="/panduan-tugas-akhir">PANDUAN TUGAS AKHIR</DropdownLink>
-                        <DropdownLink href="/prosedur-kerja-praktek">PROSEDUR KERJA PRAKTEK</DropdownLink>
-                        <DropdownLink href="/panduan-kerja-praktek">PANDUAN KERJA PRAKTEK</DropdownLink>
-                        <DropdownLink href="/sop-mbkm">SOP MBKM</DropdownLink>
-                        <DropdownLink href="/panduan-mata-kuliah-berbasis-proyek">PANDUAN MATA KULIAH BERBASIS PROYEK</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.prosedur-tugas-akhir')}>PROSEDUR TUGAS AKHIR</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.panduan-tugas-akhir')}>PANDUAN TUGAS AKHIR</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.prosedur-kerja-praktek')}>PROSEDUR KERJA PRAKTEK</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.panduan-kerja-praktek')}>PANDUAN KERJA PRAKTEK</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.sop-mbkm')}>SOP MBKM</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.panduan-mk-proyek')}>PANDUAN MATA KULIAH BERBASIS PROYEK</DropdownLink>
                     </NavDropdown>
 
                     <button 
