@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Models\Lecturer;
 use App\Models\Visi;
 use App\Models\Misi;
+use App\Models\ProfilLulusan;
 
 class ProfilController extends Controller
 {
@@ -25,8 +26,11 @@ class ProfilController extends Controller
     // Menampilkan halaman Profil Jurusan
     public function profilLulusan()
     {
+        $profilLulusans = ProfilLulusan::latest()->get();
+
         return Inertia::render('Profil/ProfilLulusan', [
             'title' => 'Profil ProfilLulusan',
+            'profilLulusans' => $profilLulusans,
             // 'breadcrumbs' => [
             //     ['label' => 'Profil', 'url' => '#'],
             //     ['label' => 'Profil lulusan', 'url' => route('profil.profil-lulusan')],

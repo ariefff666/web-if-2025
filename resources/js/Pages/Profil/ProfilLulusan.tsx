@@ -1,9 +1,9 @@
 import ProfilLayout from '@/Layouts/ProfilLayout';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
-import React from 'react';
+import { ProfilLulusans } from '@/types';
 
-export default function VisiMisi() {
+export default function VisiMisi({profilLulusans}: {profilLulusans: ProfilLulusans[]}) {
     return (
         <ProfilLayout>
             <Head title="Profil Lulusan" />
@@ -20,18 +20,9 @@ export default function VisiMisi() {
                 </p>
 
                 <ul className="list-disc list-inside text-gray-700 leading-relaxed space-y-3">
-                    <li>
-                        <strong>Software Engineer / Software Developer: </strong>Menghasilkan tenaga ahli yang profesional di bidang Ilmu Komputer dan Rekayasa Perangkat Lunak.
-                    </li>
-                    <li>
-                        <strong>Analis Sistem (Systems Analyst): </strong>Menghasilkan tenaga ahli yang profesional di bidang Analis Sistem.
-                    </li>
-                    <li>
-                        <strong>Peneliti / Ilmuwan Komputer (Researcher / Computer Scientist): </strong>Menghasilkan tenaga ahli yang profesional di bidang Peneliti / Ilmuwan Komputer.
-                    </li>
-                    <li>
-                        <strong>Spesialis Jaringan dan Keamanan (Network & Security Specialist): </strong>Menghasilkan tenaga ahli yang profesional di bidang Spesialis Jaringan dan Keamanan.
-                    </li>
+                    {profilLulusans.map((profilLulusan, index) => (
+                        <li key={index} className='text-justify'>{profilLulusan.content}</li>
+                    ))}
                 </ul>
             </motion.div>
         </ProfilLayout>

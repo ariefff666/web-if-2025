@@ -77,3 +77,13 @@ export type Misi = {
     id: number;
     content: string;
 }
+
+export type ProfilLulusans = {
+    id:number;
+    content: string;
+}
+
+export type StrukturPimpinans = {
+    id:number;
+    content: string;
+}
