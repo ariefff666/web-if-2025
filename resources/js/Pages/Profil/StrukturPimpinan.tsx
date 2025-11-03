@@ -1,8 +1,9 @@
 import ProfilLayout from '@/Layouts/ProfilLayout';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
+import { StrukturPimpinans } from '@/types';
 
-export default function VisiMisi() {
+export default function VisiMisi({strukturPimpinans}: {strukturPimpinans: StrukturPimpinans}) {
     return (
         <ProfilLayout>
             <Head title="Profil Lulusan" />
@@ -14,7 +15,7 @@ export default function VisiMisi() {
             >
                 <h2 className="text-3xl font-bold text-sky-600 mb-6 border-l-4 border-yellow-400 pl-4">Struktur Pimpinan</h2>
                 <img
-                    src="/storage/struktur-pimpinan/struktur-pimpinan.png" // Ganti dengan path gambar Anda
+                    src={strukturPimpinans.content} // Ganti dengan path gambar Anda
                     alt="Deskripsi gambar yang relevan"
                     className="w-full h-full object-cover"
                 />

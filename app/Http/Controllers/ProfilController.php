@@ -8,6 +8,7 @@ use App\Models\Lecturer;
 use App\Models\Visi;
 use App\Models\Misi;
 use App\Models\ProfilLulusan;
+use App\Models\StrukturPimpinan;
 
 class ProfilController extends Controller
 {
@@ -41,8 +42,10 @@ class ProfilController extends Controller
     // Menampilkan halaman Struktur Pimpinan
     public function strukturPimpinan()
     {
+        $strukturPimpinans = StrukturPimpinan::first();
         return Inertia::render('Profil/StrukturPimpinan', [
             'title' => 'Struktur Pimpinan',
+            'strukturPimpinans' => $strukturPimpinans,
             // 'breadcrumbs' => [
             //     ['label' => 'Profil', 'url' => '#'],
             //     ['label' => 'Struktur Pimpinan', 'url' => route('profil.struktur-pimpinan')],
