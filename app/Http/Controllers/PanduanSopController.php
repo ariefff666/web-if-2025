@@ -39,8 +39,6 @@ class PanduanSopController extends Controller
         ]);
     }
 
-    // --- Definisi untuk setiap halaman ---
-
     public function prosedurTA(): Response
     {
         return $this->renderPanduanPage(
@@ -107,7 +105,6 @@ class PanduanSopController extends Controller
         $filePath = Storage::disk('public')->path($path);
         $fileName = basename($path);
         
-        // Menggunakan response() untuk mengirim file dengan header inline
         return response()->file($filePath, [
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'inline; filename="' . $fileName . '"'

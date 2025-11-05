@@ -8,14 +8,14 @@ export default function VisiMisi({strukturPimpinans}: {strukturPimpinans: Strukt
         <ProfilLayout>
             <Head title="Profil Lulusan" />
             <motion.div
-                className="relative h-screen" // Pastikan div ini punya tinggi, contoh: h-screen (tinggi layar penuh)
+                className="relative h-screen"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7 }}
             >
                 <h2 className="text-3xl font-bold text-sky-600 mb-6 border-l-4 border-yellow-400 pl-4">Struktur Pimpinan</h2>
                 <img
-                    src={strukturPimpinans.content} // Ganti dengan path gambar Anda
+                    src={strukturPimpinans.content}
                     alt="Deskripsi gambar yang relevan"
                     className="w-full h-full object-cover"
                 />

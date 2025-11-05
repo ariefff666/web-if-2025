@@ -1,11 +1,9 @@
 import PanduanSopLayout from '@/Layouts/PanduanSopLayout';
 import { Head, usePage } from '@inertiajs/react';
-import React from 'react';
 import { PageProps as InertiaPageProps } from '@inertiajs/core';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 
-// Tipe data yang sama seperti di Layout
 interface PanduanItem {
     title: string;
     slug: string;
@@ -35,11 +33,6 @@ export default function Show() {
                 <h2 className="text-3xl font-bold text-sky-600 mb-6 border-l-4 border-yellow-400 pl-4">
                     {currentPanduan.title}
                 </h2>
-                
-                {/* Di sinilah kita menampilkan PDF.
-                  Menggunakan <iframe> adalah cara paling standar dan
-                  andal untuk menampilkan PDF di semua browser.
-                */}
                 <div className="w-full h-[100vh] rounded-lg overflow-hidden border border-gray-200 shadow-inner">
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
                         <Viewer fileUrl={currentPanduan.file_url} />

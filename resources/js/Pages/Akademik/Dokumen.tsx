@@ -1,6 +1,7 @@
 import AkademikLayout from '@/Layouts/AkademikLayout';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
+import { Worker, Viewer } from '@react-pdf-viewer/core';
 
 export default function VisiMisi() {
     const pdfPath = "/storage/dokumen/kurikulum.pdf"; 
@@ -14,12 +15,9 @@ export default function VisiMisi() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7 }}
             >
-                {/* <h2 className="text-3xl font-bold text-sky-600 mb-6 border-l-4 border-yellow-400 pl-4">Dokumen</h2> */}
-                <iframe
-                    src={pdfPath}
-                    title="Dokumen PDF"
-                    className="w-full h-full border-none rounded-lg"
-                />
+                <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
+                    <Viewer fileUrl={pdfPath} />
+                </Worker>
             </motion.div>
         </AkademikLayout>
     );
