@@ -87,3 +87,13 @@ export type StrukturPimpinans = {
     id:number;
     content: string;
 }
+
+export type CPL = {
+    id: number
+    kode: string
+    kategori: string
+    sub_kategori: string
+    deskripsi: string
+    created_at: string | null
+    updated_at: string | null
+}

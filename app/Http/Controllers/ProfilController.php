@@ -9,6 +9,7 @@ use App\Models\Visi;
 use App\Models\Misi;
 use App\Models\ProfilLulusan;
 use App\Models\StrukturPimpinan;
+use App\Models\CPL;
 
 class ProfilController extends Controller
 {
@@ -56,8 +57,10 @@ class ProfilController extends Controller
     // Menampilkan halaman Capaian Pembelajaran Lulusan
     public function capaianPembelajaran()
     {
+         $cpl = CPL::orderBy('kategori')->orderBy('kode')->get();
         return Inertia::render('Profil/CapaianPembelajaran', [
             'title' => 'Capaian Pembelajaran Lulusan',
+            'cpl' => $cpl,
             // 'breadcrumbs' => [
             //     ['label' => 'Profil', 'url' => '#'],
             //     ['label' => 'Capaian Pembelajaran Lulusan', 'url' => route('profil.capaian-pembelajaran')],
