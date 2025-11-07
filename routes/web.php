@@ -9,9 +9,13 @@ use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
 use App\Models\NewsAnnouncementsAchievements;
 use App\Http\Controllers\PanduanSopController;
+<<<<<<< HEAD
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\AdminController;
+=======
+use App\Http\Controllers\AkademikController;
+>>>>>>> 1b2652c6695df93e7584aba7b709535f82075352
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -37,17 +41,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/kurikulum', function () {
-    return Inertia::render('Akademik/Kurikulum');
-});
+Route::get('/kurikulum', [AkademikController::class, 'kurikulum']);
 
-Route::get('/jadwal', function () {
-    return Inertia::render('Akademik/Jadwal');
-});
+Route::get('/jadwal', [AkademikController::class, 'jadwal']);
 
-Route::get('/dokumen', function () {
-    return Inertia::render('Akademik/Dokumen');
-});
+Route::get('/dokumen', [AkademikController::class, 'dokumen']);
 
 // Rute untuk Panduan & SOP
 Route::prefix('panduan-sop')->name('panduan-sop.')->group(function () {
@@ -60,6 +58,7 @@ Route::prefix('panduan-sop')->name('panduan-sop.')->group(function () {
     Route::get('/stream/{slug}', [PanduanSopController::class, 'streamPdf'])->name('stream');
 });
 
+<<<<<<< HEAD
 Route::middleware(['auth', IsAdmin::class])
     ->prefix('admin')
     ->name('admin.')
@@ -90,4 +89,16 @@ Route::post('admin/logout', [AdminLoginController::class, 'destroy'])
      ->middleware('auth') // Hanya bisa diakses jika SUDAH login
      ->name('admin.logout');
 
+=======
+// Route::prefix('akademik')->name('akademik.')->group(function () {
+//     Route::get('/jadwal', [AkademikController::class, 'jadwal'])
+//          ->name('jadwal');
+//     Route::get('/kurikulum', [AkademikController::class, 'kurikulum'])
+//          ->name('kurikulum');
+//     Route::get('/dokumen', [AkademikController::class, 'dokumen'])
+//          ->name('dokumen');
+//     Route::get('/stream/{slug}', [AkademikController::class, 'streamPdf'])
+//          ->name('stream');
+// });
+>>>>>>> 1b2652c6695df93e7584aba7b709535f82075352
 require __DIR__.'/auth.php';
