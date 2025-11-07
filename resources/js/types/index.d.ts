@@ -97,3 +97,16 @@ export type CPL = {
     created_at: string | null
     updated_at: string | null
 }
+
+export type Akademik = {
+    id: number
+    title: string
+    slug: string
+    file_path: string
+}
+
+export type AkademikDokumen = {
+    id: number
+    title: string
+    file_path: string
+}

@@ -19,17 +19,12 @@ class AkademikSeeder extends Seeder
             [
                 'title' => 'Kurikulum',
                 'slug' => 'kurikulum',
-                'file_path' => '/storage/dokumen/kurikulum.pdf',
+                'file_path' => '/storage/akademik/kurikulum.pdf',
             ],
             [
                 'title' => 'Jadwal',
                 'slug' => 'jadwal',
-                'file_path' => '/storage/dokumen/kurikulum.pdf',
-            ],
-            [
-                'title' => 'Dokumen',
-                'slug' => 'dokumen',
-                'file_path' => '/storage/dokumen/kurikulum.pdf',
+                'file_path' => '/storage/akademik/kurikulum.pdf',
             ],
         ];
 

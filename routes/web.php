@@ -9,6 +9,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
 use App\Models\NewsAnnouncementsAchievements;
 use App\Http\Controllers\PanduanSopController;
+use App\Http\Controllers\AkademikController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -34,17 +35,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/kurikulum', function () {
-    return Inertia::render('Akademik/Kurikulum');
-});
+Route::get('/kurikulum', [AkademikController::class, 'kurikulum']);
 
-Route::get('/jadwal', function () {
-    return Inertia::render('Akademik/Jadwal');
-});
+Route::get('/jadwal', [AkademikController::class, 'jadwal']);
 
-Route::get('/dokumen', function () {
-    return Inertia::render('Akademik/Dokumen');
-});
+Route::get('/dokumen', [AkademikController::class, 'dokumen']);
 
 // Rute untuk Panduan & SOP
 Route::prefix('panduan-sop')->name('panduan-sop.')->group(function () {
@@ -57,4 +52,14 @@ Route::prefix('panduan-sop')->name('panduan-sop.')->group(function () {
     Route::get('/stream/{slug}', [PanduanSopController::class, 'streamPdf'])->name('stream');
 });
 
+// Route::prefix('akademik')->name('akademik.')->group(function () {
+//     Route::get('/jadwal', [AkademikController::class, 'jadwal'])
+//          ->name('jadwal');
+//     Route::get('/kurikulum', [AkademikController::class, 'kurikulum'])
+//          ->name('kurikulum');
+//     Route::get('/dokumen', [AkademikController::class, 'dokumen'])
+//          ->name('dokumen');
+//     Route::get('/stream/{slug}', [AkademikController::class, 'streamPdf'])
+//          ->name('stream');
+// });
 require __DIR__.'/auth.php';
