@@ -9,6 +9,9 @@ use Inertia\Inertia;
 use App\Http\Controllers\HomeController;
 use App\Models\NewsAnnouncementsAchievements;
 use App\Http\Controllers\PanduanSopController;
+use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
+use App\Http\Middleware\IsAdmin;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -56,5 +59,35 @@ Route::prefix('panduan-sop')->name('panduan-sop.')->group(function () {
     Route::get('/panduan-mk-proyek', [PanduanSopController::class, 'panduanMKProyek'])->name('panduan-mk-proyek');
     Route::get('/stream/{slug}', [PanduanSopController::class, 'streamPdf'])->name('stream');
 });
+
+Route::middleware(['auth', IsAdmin::class])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        
+    Route::get('/beranda', [AdminController::class, 'beranda'])->name('beranda');
+
+    // (temp buat halaman lain nanti)
+    // Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
+    // Route::get('/berita', [AdminController::class, 'berita'])->name('berita');
+    // Route::get('/akademik', [AdminController::class, 'akademik'])->name('akademik');
+    // Route::get('/panduan-sop', [AdminController::class, 'panduanSop'])->name('panduan-sop');
+        
+});
+
+// Rute untuk menampilkan form login admin
+Route::get('admin/login', [AdminLoginController::class, 'create'])
+     ->middleware('guest') // Hanya bisa diakses jika BELUM login
+     ->name('admin.login.form');
+
+// Rute untuk memproses login admin
+Route::post('admin/login', [AdminLoginController::class, 'store'])
+     ->middleware('guest')
+     ->name('admin.login.store');
+
+// Rute untuk logout admin
+Route::post('admin/logout', [AdminLoginController::class, 'destroy'])
+     ->middleware('auth') // Hanya bisa diakses jika SUDAH login
+     ->name('admin.logout');
 
 require __DIR__.'/auth.php';
