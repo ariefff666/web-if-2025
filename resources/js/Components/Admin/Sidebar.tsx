@@ -26,10 +26,10 @@ const navGroups: { title: string; icon: React.ElementType; patterns: string[]; i
     {
         title: 'Beranda',
         icon: LayoutDashboard,
-        patterns: ['/admin', '/admin/hero', '/admin/welcome', '/admin/testimonials', '/admin/facilities'],
+        patterns: ['/admin', '/admin/hero-section', '/admin/welcome', '/admin/testimonials', '/admin/facilities'],
         items: [
             { label: 'Ringkasan', href: route('admin.beranda'), patterns: ['/admin$'] },
-            { label: 'Hero Section', href: "#", patterns: ['/admin/hero'] },
+            { label: 'Hero Section', href: route('admin.hero-section'), patterns: ['/admin/hero-section'] },
             { label: 'Welcome Message', href: "#", patterns: ['/admin/welcome'] },
             { label: 'Testimonials', href: "#", patterns: ['/admin/testimonials'] },
             { label: 'Facilities', href: "#", patterns: ['/admin/facilities'] },

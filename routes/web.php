@@ -62,6 +62,9 @@ Route::middleware(['auth', IsAdmin::class])
         
     Route::get('/beranda', [AdminController::class, 'beranda'])->name('beranda');
 
+    Route::get('/hero-section', [AdminController::class, 'heroSection'])->name('hero-section');
+    Route::post('/hero-section', [AdminController::class, 'updateHeroSection'])->name('hero-section.update');
+
     // (temp buat halaman lain nanti)
     // Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
     // Route::get('/berita', [AdminController::class, 'berita'])->name('berita');
@@ -70,14 +73,4 @@ Route::middleware(['auth', IsAdmin::class])
         
 });
 
-// Route::prefix('akademik')->name('akademik.')->group(function () {
-//     Route::get('/jadwal', [AkademikController::class, 'jadwal'])
-//          ->name('jadwal');
-//     Route::get('/kurikulum', [AkademikController::class, 'kurikulum'])
-//          ->name('kurikulum');
-//     Route::get('/dokumen', [AkademikController::class, 'dokumen'])
-//          ->name('dokumen');
-//     Route::get('/stream/{slug}', [AkademikController::class, 'streamPdf'])
-//          ->name('stream');
-// });
 require __DIR__.'/auth.php';

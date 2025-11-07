@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\NewsAnnouncementsAchievements;
 use App\Models\Lecturer;
+use App\Models\HeroSection;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -32,4 +35,47 @@ class AdminController extends Controller
     // public function berita() { ... }
     // public function akademik() { ... }
     // public function panduanSop() { ... }
+
+    /**
+     * Menampilkan halaman pengelolaan hero section.
+     */
+    public function heroSection()
+    {
+        $heroData = HeroSection::first(); // Asumsi hanya ada satu baris data
+        return Inertia::render('Admin/HeroSection', [
+            'heroData' => $heroData
+        ]);
+    }
+
+    /**
+     * Memperbarui data hero section.
+     */
+    public function updateHeroSection(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'paragraph_1' => 'required|string',
+            'paragraph_2' => 'nullable|string',
+            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $heroSection = HeroSection::first();
+
+        if ($request->hasFile('hero_image')) {
+            // Hapus gambar lama jika ada
+            if ($heroSection->hero_image_path) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $heroSection->hero_image_path));
+            }
+
+            $path = $request->file('hero_image')->store('images/hero', 'public');
+            $heroSection->hero_image_path = Storage::url($path);
+        }
+
+        $heroSection->title = $request->title;
+        $heroSection->paragraph_1 = $request->paragraph_1;
+        $heroSection->paragraph_2 = $request->paragraph_2;
+        $heroSection->save();
+
+        return Redirect::route('admin.hero-section')->with('success', 'Hero Section berhasil diperbarui.');
+    }
 }
