@@ -70,21 +70,6 @@ Route::middleware(['auth', IsAdmin::class])
         
 });
 
-// Rute untuk menampilkan form login admin
-Route::get('admin/login', [AdminLoginController::class, 'create'])
-     ->middleware('guest') // Hanya bisa diakses jika BELUM login
-     ->name('admin.login.form');
-
-// Rute untuk memproses login admin
-Route::post('admin/login', [AdminLoginController::class, 'store'])
-     ->middleware('guest')
-     ->name('admin.login.store');
-
-// Rute untuk logout admin
-Route::post('admin/logout', [AdminLoginController::class, 'destroy'])
-     ->middleware('auth') // Hanya bisa diakses jika SUDAH login
-     ->name('admin.logout');
-
 // Route::prefix('akademik')->name('akademik.')->group(function () {
 //     Route::get('/jadwal', [AkademikController::class, 'jadwal'])
 //          ->name('jadwal');

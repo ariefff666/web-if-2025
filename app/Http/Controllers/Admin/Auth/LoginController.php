@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest; // Kita pakai ulang LoginRequest
+use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +39,7 @@ class LoginController extends Controller
             $request->session()->regenerateToken();
 
             // Kembalikan ke login dengan pesan error
-            return redirect()->route('admin.login.form')
+            return redirect()->route('login')
                 ->withErrors(['email' => 'Anda tidak memiliki hak akses admin.']);
         }
 
@@ -62,6 +62,6 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         // Redirect ke halaman login admin, bukan halaman utama
-        return redirect()->route('admin.login.form');
+        return redirect()->route('login');
     }
 }

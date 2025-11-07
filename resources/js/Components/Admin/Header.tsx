@@ -55,7 +55,7 @@ export default function Header({ onToggleSidebar }: HeaderProps) {
 
                     <Link
                         method="post"
-                        href={route('admin.logout')}
+                        href={route('logout')}
                         as="button"
                         className="hidden rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-500 transition hover:bg-slate-200 hover:text-slate-700 sm:inline-flex sm:items-center sm:gap-2"
                     >
