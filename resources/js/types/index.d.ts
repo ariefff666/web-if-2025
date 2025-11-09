@@ -1,34 +1,48 @@
+import { Config } from 'ziggy-js';
+
 export interface User {
     id: number;
     name: string;
     email: string;
-    email_verified_at?: string;
+    email_verified_at: string;
 }
 
-export type PageProps<
-    T extends Record<string, unknown> = Record<string, unknown>,
-> = T & {
+export interface StrukturPimpinanData {
+    id: number;
+    content: string;
+}
+
+export interface ProfilLulusanData {
+    id: number;
+    content: string;
+}
+
+export interface WelcomeData {
+    id: number;
+    title: string;
+    paragraph_1: string;
+    paragraph_2: string | null;
+    name: string;
+    kajur_image_path: string | null;
+}
+
+export interface HeroData {
+    id: number;
+    title: string;
+    paragraph_1: string;
+    paragraph_2: string | null;
+    hero_image_path: string | null;
+}
+
+export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
         user: User;
+    };
+    ziggy: Config & { location: string };
+    flash: {
+        success?: string;
     }
-}
-
-export type HeroData = {
-    id: number;
-    title: string;
-    paragraph_1: string;
-    paragraph_2: string;
-    hero_image_path: string;
-}
-
-export type WelcomeMessageData ={
-    id: number;
-    title: string;
-    paragraph_1: string;
-    paragraph_2: string;
-    kajur_image_path: string;
-    name: string;
-}
+};
 
 export type Testimonial = {
     id: number;
@@ -78,12 +92,12 @@ export type Misi = {
     content: string;
 }
 
-export type ProfilLulusans = {
+export type ProfilLulusan = {
     id:number;
     content: string;
 }
 
-export type StrukturPimpinans = {
+export type StrukturPimpinan = {
     id:number;
     content: string;
 }

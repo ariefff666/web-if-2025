@@ -5,6 +5,7 @@ import { Newspaper, Users, FileStack, Sparkles, Rocket, ChevronRight } from 'luc
 import Particles from '@tsparticles/react';
 import type { Container, Engine } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
+import { Link } from '@inertiajs/react';
 
 interface StatCardProps {
     title: string;
@@ -34,9 +35,7 @@ const StatCard = ({ title, value, icon: Icon, accent, delay }: StatCardProps) =>
     </motion.div>
 );
 
-export default function Beranda() {
-    const stats = { berita: 12, dosen: 25, dokumen: 42 };
-
+export default function Beranda({ stats, recentActivities }: { stats: { berita: number, dosen: number, dokumen: number }, recentActivities: any[] }) {
     const particlesInit = useCallback(async (engine: Engine) => {
         await loadSlim(engine);
     }, []);
@@ -112,19 +111,19 @@ export default function Beranda() {
                             <p className="mt-2 text-sm text-slate-500">Atur modul utama dengan satu klik.</p>
                             <div className="mt-4 grid gap-3 sm:grid-cols-2">
                                 {[
-                                    { label: 'Tambah Berita', href: "#" },
-                                    { label: 'Kelola Hero Section', href: "#" },
-                                    { label: 'Perbarui Visi Misi', href: "#" },
-                                    { label: 'Dokumen Panduan', href: "#" },
+                                    { label: 'Tambah Berita', href: route('admin.berita.create') },
+                                    { label: 'Kelola Hero Section', href: route('admin.hero-section') },
+                                    { label: 'Perbarui Visi Misi', href: route('admin.profil.visi-misi') },
+                                    { label: 'Dokumen Panduan', href: route('admin.panduan-sop.index') },
                                 ].map(link => (
-                                    <a
+                                    <Link
                                         key={link.label}
                                         href={link.href}
                                         className="group flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition hover:border-sky-500 hover:text-sky-600"
                                     >
                                         <span>{link.label}</span>
                                         <ChevronRight size={16} className="text-slate-300 transition group-hover:translate-x-1 group-hover:text-yellow-500" />
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
@@ -133,9 +132,9 @@ export default function Beranda() {
                             <h2 className="text-lg font-semibold text-slate-800">Aktivitas Terkini</h2>
                             <p className="mt-2 text-sm text-slate-500">Riwayat pembaruan konten dan pengguna.</p>
                             <div className="mt-4 space-y-3 text-sm text-slate-500">
-                                <p>• 12/11/2025 — Hero Section diperbarui oleh Admin</p>
-                                <p>• 11/11/2025 — 3 Testimoni baru ditambahkan</p>
-                                <p>• 09/11/2025 — Struktur pimpinan diperbarui</p>
+                                {recentActivities.map(activity => (
+                                    <p key={activity.item.id}>• {new Date(activity.item.updated_at).toLocaleDateString()} — {activity.type} diperbarui</p>
+                                ))}
                             </div>
                         </div>
                     </motion.div>

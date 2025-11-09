@@ -1,9 +1,9 @@
 import ProfilLayout from '@/Layouts/ProfilLayout';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
-import { StrukturPimpinans } from '@/types';
+import { StrukturPimpinan } from '@/types';
 
-export default function VisiMisi({strukturPimpinans}: {strukturPimpinans: StrukturPimpinans}) {
+export default function VisiMisi({strukturPimpinans}: {strukturPimpinans: StrukturPimpinan}) {
     return (
         <ProfilLayout>
             <Head title="Profil Lulusan" />
