@@ -18,7 +18,7 @@ export default function Kurikulum({kurikulum} : {kurikulum: Akademik}) {
                 <h2 className="text-3xl font-bold text-sky-600 mb-6 border-l-4 border-yellow-400 pl-4">
                     {kurikulum.title}
                 </h2>
-                <div className="w-full h-[100vh] rounded-lg overflow-hidden border border-gray-200 shadow-inner">
+                <div className="w-full h-screen rounded-lg overflow-hidden border border-gray-200 shadow-inner">
                     <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js">
                         <Viewer fileUrl={kurikulum.file_path} />
                     </Worker>

@@ -30,7 +30,7 @@ export default function PanduanSopLayout({ children }: { children: ReactNode }) 
 
     return (
         <GlobalLayout>
-            <div className="container mx-auto px-6 py-12 lg:px-32 bg-gradient-to-r from-white via-gray-100 to-white">
+            <div className="container mx-auto px-6 py-12 lg:px-32 bg-gradient-to-r from-white via-sky-100 to-white">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
                     {/* Sidebar Navigasi (Kiri) */}
                     <motion.div
