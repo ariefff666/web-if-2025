@@ -117,10 +117,18 @@ export type Akademik = {
     title: string
     slug: string
     file_path: string
+    created_at: Date
 }
 
 export type AkademikDokumen = {
     id: number
     title: string
+    file_path: string
+}
+
+export type PanduanSop = {
+    id: number
+    title: string
+    created_at: Date
     file_path: string
 }

@@ -29,11 +29,13 @@ class PanduanSopAdminController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required|string|in:panduan,sop,prosedur',
             'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx',
         ]);
 
         $panduanSop = new PanduanSop($request->except('file'));
         $panduanSop->slug = Str::slug($request->title);
+        $panduanSop->category = $request->category;
 
         if ($request->hasFile('file')) {
             $path = $request->file('file')->store('documents/panduan-sop', 'public');
@@ -56,11 +58,13 @@ class PanduanSopAdminController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required|string|in:panduan,sop,prosedur',
             'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx',
         ]);
 
         $panduanSop->fill($request->except('file'));
         $panduanSop->slug = Str::slug($request->title);
+        $panduanSop->category = $request->category;
 
         if ($request->hasFile('file')) {
             if ($panduanSop->file_path) {

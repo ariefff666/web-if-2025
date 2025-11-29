@@ -62,12 +62,9 @@ export default function Navbar() {
                     </NavDropdown>
                     
                     <NavDropdown title="PANDUAN DAN SOP">
-                        <DropdownLink href={route('panduan-sop.prosedur-tugas-akhir')}>PROSEDUR TUGAS AKHIR</DropdownLink>
-                        <DropdownLink href={route('panduan-sop.panduan-tugas-akhir')}>PANDUAN TUGAS AKHIR</DropdownLink>
-                        <DropdownLink href={route('panduan-sop.prosedur-kerja-praktek')}>PROSEDUR KERJA PRAKTEK</DropdownLink>
-                        <DropdownLink href={route('panduan-sop.panduan-kerja-praktek')}>PANDUAN KERJA PRAKTEK</DropdownLink>
-                        <DropdownLink href={route('panduan-sop.sop-mbkm')}>SOP MBKM</DropdownLink>
-                        <DropdownLink href={route('panduan-sop.panduan-mk-proyek')}>PANDUAN MATA KULIAH BERBASIS PROYEK</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.panduan')}>PANDUAN</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.prosedur')}>PROSEDUR</DropdownLink>
+                        <DropdownLink href={route('panduan-sop.sop')}>SOP</DropdownLink>
                     </NavDropdown>
 
                     <button 

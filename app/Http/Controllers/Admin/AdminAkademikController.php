@@ -29,11 +29,13 @@ class AdminAkademikController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required|string|in:kurikulum,jadwal,dokumen',
             'file' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx',
         ]);
 
         $akademik = new Akademik($request->except('file'));
         $akademik->slug = Str::slug($request->title);
+        $akademik->category = $request->category;
 
         if ($request->hasFile('file')) {
             $path = $request->file('file')->store('documents/akademik', 'public');
@@ -56,11 +58,13 @@ class AdminAkademikController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'category' => 'required|string|in:kurikulum,jadwal,dokumen',
             'file' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx',
         ]);
 
         $akademik->fill($request->except('file'));
         $akademik->slug = Str::slug($request->title);
+        $akademik->category = $request->category;
 
         if ($request->hasFile('file')) {
             if ($akademik->file_path) {

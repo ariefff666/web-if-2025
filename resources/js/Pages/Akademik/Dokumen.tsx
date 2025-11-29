@@ -1,70 +1,62 @@
 import AkademikLayout from '@/Layouts/AkademikLayout';
-import { AkademikDokumen } from '@/types';
+import { Akademik } from '@/types';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
+import { Download, Eye } from 'lucide-react';
+import { useState } from 'react';
+import PdfPreviewModal from '@/Components/PdfPreviewModal';
 
-export default function Dokumen({dokumen} : {dokumen: AkademikDokumen[]}) {
+export default function Dokumen({dokumen} : {dokumen: Akademik[]}) {
+    const [previewFile, setPreviewFile] = useState<string | null>(null);
 
     return (
         <AkademikLayout>
             <Head title="Dokumen" />
             <motion.div
-                className="relative h-[85vh]"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.7 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-7xl mx-auto bg-white/90 rounded-2xl shadow-lg p-8 min-h-[75vh]"
             >
                 <h1 className="text-3xl font-bold mb-6 text-gray-800">
                     Dokumen Akademik
                 </h1>
 
-                {/* 2. Wrapper untuk tabel agar responsif dan ada shadow */}
-                <div className="overflow-x-auto relative shadow-md sm:rounded-lg">
-                    <table className="w-full text-sm text-left text-gray-500">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-100">
+                <div className="overflow-x-auto">
+                    <table className="min-w-full bg-white rounded-lg shadow overflow-hidden">
+                        <thead className="bg-sky-50">
                             <tr>
-                                <th scope="col" className="px-6 py-3 w-16">
-                                    No.
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Nama Dokumen
-                                </th>
-                                <th scope="col" className="px-6 py-3 text-center">
-                                    Unduh
-                                </th>
+                                <th className="py-3 px-6 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Judul</th>
+                                <th className="py-3 px-6 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Tanggal Unggah</th>
+                                <th className="py-3 px-6 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {/* 3. Lakukan mapping/iterasi data dokumen di sini */}
+                        <tbody className="divide-y divide-slate-200">
                             {dokumen.length > 0 ? (
                                 dokumen.map((doc, index) => (
-                                    <tr key={doc.id} className="bg-white border-b hover:bg-gray-50">
-                                        <td className="px-6 py-4 font-medium text-gray-900">
-                                            {/* Nomor urut baris */}
-                                            {index + 1}
+                                    <motion.tr
+                                        key={doc.id}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                                    >
+                                        <td className="py-4 px-6 whitespace-nowrap">{doc.title}</td>
+                                        <td className="py-4 px-6 whitespace-nowrap">{new Date(doc.created_at).toLocaleDateString()}</td>
+                                        <td className="py-4 px-6 whitespace-nowrap text-left">
+                                            <div className="flex items-center gap-4">
+                                                <motion.button whileHover={{ y: -2, scale: 1.1 }} onClick={() => setPreviewFile(doc.file_path)} className="text-slate-500 hover:text-sky-600 transition">
+                                                    <Eye size={18} />
+                                                </motion.button>
+                                                <motion.a whileHover={{ y: -2, scale: 1.1 }} href={doc.file_path} target="_blank" rel="noreferrer" className="text-slate-500 hover:text-sky-600 transition">
+                                                    <Download size={18} />
+                                                </motion.a>
+                                            </div>
                                         </td>
-                                        <td className="px-6 py-4">
-                                            {/* Judul dokumen */}
-                                            {doc.title}
-                                        </td>
-                                        <td className="px-6 py-4 text-center">
-                                            {/* 4. Link untuk download */}
-                                            <a
-                                                href={doc.file_path}
-                                                download // Atribut ini memberitahu browser untuk men-download
-                                                target="_blank" // Membuka di tab baru (baik untuk file)
-                                                rel="noopener noreferrer"
-                                                className="font-medium text-blue-600 hover:underline"
-                                            >
-                                                Unduh File
-                                            </a>
-                                        </td>
-                                    </tr>
+                                    </motion.tr>
                                 ))
                             ) : (
-                                // Tampilkan pesan jika tidak ada dokumen
-                                <tr className="bg-white border-b">
-                                    <td colSpan={3} className="px-6 py-4 text-center text-gray-500">
+                                <tr>
+                                    <td colSpan={3} className="py-4 px-6 text-center text-gray-500">
                                         Tidak ada dokumen yang tersedia.
                                     </td>
                                 </tr>
@@ -73,6 +65,12 @@ export default function Dokumen({dokumen} : {dokumen: AkademikDokumen[]}) {
                     </table>
                 </div>
             </motion.div>
+            {previewFile && (
+                <PdfPreviewModal
+                    file_path={previewFile}
+                    onClose={() => setPreviewFile(null)}
+                />
+            )}
         </AkademikLayout>
     );
 }

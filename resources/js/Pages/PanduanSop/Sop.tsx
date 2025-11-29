@@ -1,17 +1,17 @@
-import AkademikLayout from '@/Layouts/AkademikLayout';
+import PanduanSopLayout from '@/Layouts/PanduanSopLayout';
+import { PanduanSop } from '@/types';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
-import { Akademik } from '@/types/index'
 import { Download, Eye } from 'lucide-react';
 import { useState } from 'react';
 import PdfPreviewModal from '@/Components/PdfPreviewModal';
 
-export default function Jadwal({jadwal} : {jadwal: Akademik[]}) {
+export default function Sop({ sop }: { sop: PanduanSop[] }) {
     const [previewFile, setPreviewFile] = useState<string | null>(null);
 
     return (
-        <AkademikLayout>
-            <Head title="Jadwal Akademik" />
+        <PanduanSopLayout>
+            <Head title="SOP" />
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -19,7 +19,7 @@ export default function Jadwal({jadwal} : {jadwal: Akademik[]}) {
                 className="max-w-7xl mx-auto bg-white/90 rounded-2xl shadow-lg p-8 min-h-[75vh]"
             >
                 <h1 className="text-3xl font-bold mb-6 text-gray-800">
-                    Jadwal Akademik
+                    SOP (Standard Operating Procedure)
                 </h1>
 
                 <div className="overflow-x-auto">
@@ -32,8 +32,8 @@ export default function Jadwal({jadwal} : {jadwal: Akademik[]}) {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-200">
-                            {jadwal.length > 0 ? (
-                                jadwal.map((doc, index) => (
+                            {sop.length > 0 ? (
+                                sop.map((doc, index) => (
                                     <motion.tr
                                         key={doc.id}
                                         initial={{ opacity: 0 }}
@@ -57,7 +57,7 @@ export default function Jadwal({jadwal} : {jadwal: Akademik[]}) {
                             ) : (
                                 <tr>
                                     <td colSpan={3} className="py-4 px-6 text-center text-gray-500">
-                                        Tidak ada jadwal yang tersedia.
+                                        Tidak ada SOP yang tersedia.
                                     </td>
                                 </tr>
                             )}
@@ -71,6 +71,6 @@ export default function Jadwal({jadwal} : {jadwal: Akademik[]}) {
                     onClose={() => setPreviewFile(null)}
                 />
             )}
-        </AkademikLayout>
+        </PanduanSopLayout>
     );
 }
