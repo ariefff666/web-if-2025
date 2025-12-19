@@ -3,7 +3,7 @@ import { Link, usePage } from '@inertiajs/react';
 import { FaSearch, FaTimes, FaBars } from 'react-icons/fa';
 import NavDropdown, { DropdownLink, DropdownLinkMobile } from './NavDropDown';
 
-const logoPath = '/storage/LOGO_UNSRI_IF.png'; 
+const logoPath = '/LOGO_UNSRI_IF.png';
 
 export default function Navbar() {
     const { url } = usePage();
@@ -41,7 +41,7 @@ export default function Navbar() {
                     <Link href="/" className={url === '/' ? activeNavLinkClasses : navLinkClasses}>
                         BERANDA
                     </Link>
-                    
+
                     {/* Komponen Dropdown yang bisa digunakan kembali */}
                     <NavDropdown title="PROFIL">
                         <DropdownLink href="/visi-misi">VISI DAN MISI</DropdownLink>
@@ -60,14 +60,14 @@ export default function Navbar() {
                         <DropdownLink href="/jadwal">JADWAL</DropdownLink>
                         <DropdownLink href="/dokumen">DOKUMEN</DropdownLink>
                     </NavDropdown>
-                    
+
                     <NavDropdown title="PANDUAN DAN SOP">
                         <DropdownLink href={route('panduan-sop.panduan')}>PANDUAN</DropdownLink>
                         <DropdownLink href={route('panduan-sop.prosedur')}>PROSEDUR</DropdownLink>
                         <DropdownLink href={route('panduan-sop.sop')}>SOP</DropdownLink>
                     </NavDropdown>
 
-                    <button 
+                    <button
                         onClick={() => setIsSearchOpen(!isSearchOpen)}
                         className="text-gray-700 hover:text-yellow-500 transition-colors"
                     >
@@ -80,8 +80,8 @@ export default function Navbar() {
                 >
                     <div className="container mx-auto flex items-center py-4 px-52">
                         <div className="relative w-full">
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 placeholder="Masukkan kata kunci..."
                                 className="w-full py-2 pl-4 pr-12 text-gray-700 border-2 border-gray-300 rounded-md focus:outline-none focus:border-yellow-500"
                             />
@@ -102,7 +102,7 @@ export default function Navbar() {
             </div>
 
             {/* --- 3. PANEL MENU MOBILE --- */}
-            <div 
+            <div
                 className={`md:hidden absolute w-full bg-white shadow-md transition-all duration-300 ease-in-out overflow-hidden
                     ${isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`}
             >
@@ -112,19 +112,19 @@ export default function Navbar() {
 
                     <p className="px-2 pt-2 text-sm font-bold text-gray-400">BERITA</p>
                     <DropdownLinkMobile href="/berita">BERITA</DropdownLinkMobile>
-                    
+
                     {/* Untuk dropdown di mobile, biasanya dibuat lebih simpel */}
                     <p className="px-2 pt-2 text-sm font-bold text-gray-400">PROFIL</p>
                     <DropdownLinkMobile href="/visi-misi">VISI DAN MISI</DropdownLinkMobile>
                     <DropdownLinkMobile href="/profil-lulusan">PROFIL LULUSAN</DropdownLinkMobile>
                     <DropdownLinkMobile href="/struktur-pimpinan">STRUKTUR PIMPINAN</DropdownLinkMobile>
                     <DropdownLinkMobile href="/cpl">CAPAIAN PEMBELAJARAN LULUSAN (CPL)</DropdownLinkMobile>
-                    
+
                     <p className="px-2 pt-2 text-sm font-bold text-gray-400">AKADEMIK</p>
                     <DropdownLinkMobile href="/kurikulum">KURIKULUM</DropdownLinkMobile>
                     <DropdownLinkMobile href="/jadwal">JADWAL</DropdownLinkMobile>
                     <DropdownLinkMobile href="/dokumen">DOKUMEN</DropdownLinkMobile>
-                    
+
                     <p className="px-2 pt-2 text-sm font-bold text-gray-400">PANDUAN DAN SOP</p>
                     <DropdownLinkMobile href='/prosedur-tugas-akhir'>PROSEDUR TUGAS AKHIR</DropdownLinkMobile>
                     <DropdownLinkMobile href='/panduan-tugas-akhir'>PANDUAN TUGAS AKHIR</DropdownLinkMobile>

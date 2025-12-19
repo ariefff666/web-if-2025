@@ -3,7 +3,7 @@
 import { Link } from '@inertiajs/react';
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 
-const logoPath = '/storage/LOGO_UNSRI_IF.png';
+const logoPath = '/LOGO_UNSRI_IF.png';
 
 export default function Footer() {
     return (
