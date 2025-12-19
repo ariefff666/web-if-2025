@@ -42,7 +42,7 @@ export default function Hero({ heroData }: { heroData: HeroData }) {
                             <div className="md:col-span-1 flex flex-col space-y-4">
                                 <InfoLink href="/profil-lulusan">Profil Lulusan</InfoLink>
                                 <InfoLink href="/kurikulum">Kurikulum Akademik</InfoLink>
-                                <InfoLink href="/sop-mbkm">SOP MBKM</InfoLink>
+                                <InfoLink href="/panduan-sop/sop">SOP MBKM</InfoLink>
                             </div>
                         </div>
                     </div>
