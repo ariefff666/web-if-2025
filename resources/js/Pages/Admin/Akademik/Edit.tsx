@@ -8,8 +8,17 @@ import InputError from '@/Components/InputError';
 import { Edit2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-export default function Edit({ akademik }: { akademik: Akademik }) {
-    const { data, setData, post, processing, errors } = useForm({
+interface AkademikWithCategory extends Akademik {
+    category: 'dokumen' | 'kurikulum' | 'jadwal';
+}
+
+export default function Edit({ akademik }: { akademik: AkademikWithCategory }) {
+    const { data, setData, post, processing, errors } = useForm<{
+        title: string;
+        category: 'dokumen' | 'kurikulum' | 'jadwal';
+        file: File | null;
+        _method: string;
+    }>({
         title: akademik.title || '',
         category: akademik.category || 'dokumen',
         file: null as File | null,
@@ -25,7 +34,7 @@ export default function Edit({ akademik }: { akademik: Akademik }) {
 
     return (
         <AdminLayout title="Edit Dokumen Akademik">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -56,7 +65,7 @@ export default function Edit({ akademik }: { akademik: Akademik }) {
                             id="category"
                             name="category"
                             value={data.category}
-                            onChange={e => setData('category', e.target.value)}
+                            onChange={e => setData('category', e.target.value as 'dokumen' | 'kurikulum' | 'jadwal')}
                             className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm rounded-md"
                         >
                             <option value="dokumen">Dokumen</option>
@@ -68,11 +77,11 @@ export default function Edit({ akademik }: { akademik: Akademik }) {
 
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
                         <InputLabel htmlFor="file" value="File Dokumen (Kosongkan jika tidak ingin diubah)" />
-                        <input 
+                        <input
                             id="file"
-                            type="file" 
+                            type="file"
                             className="w-full mt-1"
-                            onChange={e => setData('file', e.target.files ? e.target.files[0] : null)} 
+                            onChange={e => setData('file', e.target.files ? e.target.files[0] : null)}
                         />
                         <InputError message={errors.file} className="mt-2" />
                     </motion.div>

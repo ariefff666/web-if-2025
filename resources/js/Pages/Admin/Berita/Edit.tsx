@@ -9,10 +9,16 @@ import { Edit2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Edit({ berita }: { berita: NewsAnnouncementsAchievements }) {
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing, errors } = useForm<{
+        title: string;
+        category: 'berita' | 'pengumuman' | 'prestasi';
+        body: string;
+        image: File | null;
+        _method: string;
+    }>({
         title: berita.title || '',
         category: berita.category || 'berita',
-        body: berita.body || '',
+        body: (berita.body as string) || '',
         image: null as File | null,
         _method: 'PUT',
     });
@@ -26,7 +32,7 @@ export default function Edit({ berita }: { berita: NewsAnnouncementsAchievements
 
     return (
         <AdminLayout title="Edit Berita">
-            <motion.div 
+            <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
@@ -56,7 +62,7 @@ export default function Edit({ berita }: { berita: NewsAnnouncementsAchievements
                         <select
                             id="category"
                             value={data.category}
-                            onChange={e => setData('category', e.target.value)}
+                            onChange={e => setData('category', e.target.value as 'berita' | 'pengumuman' | 'prestasi')}
                             className="w-full mt-1 border-gray-300 focus:border-yellow-500 focus:ring-yellow-500 rounded-md shadow-sm"
                         >
                             <option value="berita">Berita</option>
@@ -79,11 +85,11 @@ export default function Edit({ berita }: { berita: NewsAnnouncementsAchievements
 
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
                         <InputLabel htmlFor="image" value="Gambar" />
-                        <input 
+                        <input
                             id="image"
-                            type="file" 
+                            type="file"
                             className="w-full mt-1"
-                            onChange={e => setData('image', e.target.files ? e.target.files[0] : null)} 
+                            onChange={e => setData('image', e.target.files ? e.target.files[0] : null)}
                         />
                         <InputError message={errors.image} className="mt-2" />
                     </motion.div>

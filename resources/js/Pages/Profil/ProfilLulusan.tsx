@@ -1,9 +1,9 @@
 import ProfilLayout from '@/Layouts/ProfilLayout';
 import { Head } from '@inertiajs/react';
 import { motion } from 'framer-motion';
-import { ProfilLulusans } from '@/types';
+import { ProfilLulusan } from '@/types';
 
-export default function VisiMisi({profilLulusans}: {profilLulusans: ProfilLulusans[]}) {
+export default function VisiMisi({ profilLulusans }: { profilLulusans: ProfilLulusan[] }) {
     return (
         <ProfilLayout>
             <Head title="Profil Lulusan" />

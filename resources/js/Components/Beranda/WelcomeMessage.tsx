@@ -1,9 +1,9 @@
 import { FaQuoteRight } from 'react-icons/fa';
-import { WelcomeMessageData } from '@/types';
+import { WelcomeData } from '@/types';
 
-const headOfProgramImagePath = '/storage/dosen/hadi-purnawan.jpeg'; 
+const headOfProgramImagePath = '/storage/dosen/hadi-purnawan.jpeg';
 
-export default function WelcomeMessage({welcomeMessageData} : {welcomeMessageData: WelcomeMessageData}) {
+export default function WelcomeMessage({ welcomeMessageData }: { welcomeMessageData: WelcomeData }) {
     return (
 
         <section className="bg-gradient-to-b from-sky-600 from-0% to-white to-100% py-8 px-4">
@@ -11,11 +11,11 @@ export default function WelcomeMessage({welcomeMessageData} : {welcomeMessageDat
                 {/* Kartu utama yang membungkus semua konten */}
                 <div className="relative bg-white rounded-2xl shadow-lg p-12 lg:p-16">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                        
+
                         {/* Kolom Kiri: Foto Ketua Prodi */}
                         <div className="lg:col-span-1 flex justify-center">
-                            <img 
-                                src={welcomeMessageData.kajur_image_path} 
+                            <img
+                                src={welcomeMessageData.kajur_image_path || ''}
                                 alt="Ketua Program Studi Teknik Informatika"
                                 className="w-64 h-auto object-cover rounded-lg shadow-md"
                             />
@@ -35,7 +35,7 @@ export default function WelcomeMessage({welcomeMessageData} : {welcomeMessageDat
                             <p className="text-gray-600 leading-relaxed text-justify">
                                 {welcomeMessageData.paragraph_2}
                             </p>
-                            
+
                             {/* Bagian Tanda Tangan Digital */}
                             <div className="mt-8">
                                 <p className="font-bold text-gray-900">{welcomeMessageData.name}</p>
@@ -43,7 +43,7 @@ export default function WelcomeMessage({welcomeMessageData} : {welcomeMessageDat
                             </div>
                         </div>
                     </div>
-                    
+
                     <FaQuoteRight className="absolute bottom-12 right-12 text-yellow-400 opacity-20 text-8xl" />
                 </div>
             </div>
