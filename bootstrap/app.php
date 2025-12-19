@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
             \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
         ]);
         $middleware->trustProxies(at: '*');
+        $middleware->redirectUsersTo('/admin/beranda');
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
