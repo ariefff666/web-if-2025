@@ -18,10 +18,10 @@ export default function TopHeader() {
 
                 {/* Bagian Kanan: Ikon Sosial Media */}
                 <div className="flex items-center space-x-4">
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-yellow-400 transition-colors">
+                    <a href="https://www.youtube.com/@hmifunsri/featured" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-yellow-400 transition-colors">
                         <FaYoutube size={18} />
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-yellow-400 transition-colors">
+                    <a href="https://www.instagram.com/hmif.unsri/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-yellow-400 transition-colors">
                         <FaInstagram size={18} />
                     </a>
                 </div>

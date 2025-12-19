@@ -1,7 +1,7 @@
 // resources/js/Components/Footer/Footer.tsx
 
 import { Link } from '@inertiajs/react';
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 
 const logoPath = '/LOGO_UNSRI_IF.png';
 
@@ -20,10 +20,8 @@ export default function Footer() {
                             Menjadi program studi unggul dalam inovasi teknologi informasi yang berkontribusi pada pembangunan bangsa.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-gray-400 hover:text-white"><FaTwitter /></a>
-                            <a href="#" className="text-gray-400 hover:text-white"><FaFacebook /></a>
-                            <a href="#" className="text-gray-400 hover:text-white"><FaInstagram /></a>
-                            <a href="#" className="text-gray-400 hover:text-white"><FaYoutube /></a>
+                            <a href="https://www.instagram.com/hmif.unsri/" className="text-gray-400 hover:text-white"><FaInstagram /></a>
+                            <a href="https://www.youtube.com/@hmifunsri/featured" className="text-gray-400 hover:text-white"><FaYoutube /></a>
                         </div>
                     </div>
 
