@@ -10,7 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Models\NewsAnnouncementsAchievements;
 use App\Http\Controllers\PanduanSopController;
 use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
-use App\Http\Controllers\Admin\CPLController;
+use App\Http\Controllers\Admin\CplController;
 use App\Http\Controllers\Admin\DosenController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\Admin\ProfilAdminController;
@@ -29,11 +29,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::prefix('profil')->name('profil.')->group(function () {
-    Route::get('/visi-misi', [ProfilController::class, 'visiMisi']);
-    Route::get('/profil-lulusan', [ProfilController::class, 'profilLulusan']);
-    Route::get('/struktur-pimpinan', [ProfilController::class, 'strukturPimpinan']);
-    Route::get('/capaian-pembelajaran', [ProfilController::class, 'capaianPembelajaran']);
-    Route::get('/profil-dosen', [ProfilController::class, 'dosen']);
+Route::get('/visi-misi', [ProfilController::class, 'visiMisi']);
+Route::get('/profil-lulusan', [ProfilController::class, 'profilLulusan']);
+Route::get('/struktur-pimpinan', [ProfilController::class, 'strukturPimpinan']);
+Route::get('/capaian-pembelajaran', [ProfilController::class, 'capaianPembelajaran']);
+Route::get('/profil-dosen', [ProfilController::class, 'dosen']);
 // });
 
 Route::get('/berita', [BeritaPageController::class, 'index']);
@@ -63,38 +63,38 @@ Route::middleware(['auth', IsAdmin::class])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
-        
-    Route::get('/beranda', [AdminController::class, 'beranda'])->name('beranda');
 
-    Route::get('/hero-section', [AdminController::class, 'heroSection'])->name('hero-section');
-    Route::post('/hero-section', [AdminController::class, 'updateHeroSection'])->name('hero-section.update');
+        Route::get('/beranda', [AdminController::class, 'beranda'])->name('beranda');
 
-    Route::get('/welcome-message', [AdminController::class, 'welcomeMessage'])->name('welcome-message');
-    Route::post('/welcome-message', [AdminController::class, 'updateWelcomeMessage'])->name('welcome-message.update');
+        Route::get('/hero-section', [AdminController::class, 'heroSection'])->name('hero-section');
+        Route::post('/hero-section', [AdminController::class, 'updateHeroSection'])->name('hero-section.update');
 
-    Route::resource('testimonials', TestimonialController::class)->except(['show']);
-    Route::resource('facilities', FacilityController::class)->except(['show']);
-    Route::resource('berita', BeritaController::class)->except(['show']);
-    Route::resource('akademik', AdminAkademikController::class)->except(['show']);
-    Route::resource('panduan-sop', PanduanSopAdminController::class)->except(['show']);
+        Route::get('/welcome-message', [AdminController::class, 'welcomeMessage'])->name('welcome-message');
+        Route::post('/welcome-message', [AdminController::class, 'updateWelcomeMessage'])->name('welcome-message.update');
 
-    Route::prefix('profil')->name('profil.')->group(function () {
-        Route::get('visi-misi', [ProfilAdminController::class, 'visiMisi'])->name('visi-misi');
-        Route::post('visi-misi', [ProfilAdminController::class, 'updateVisiMisi'])->name('visi-misi.update');
-        Route::get('profil-lulusan', [ProfilAdminController::class, 'profilLulusan'])->name('profil-lulusan');
-        Route::post('profil-lulusan', [ProfilAdminController::class, 'updateProfilLulusan'])->name('profil-lulusan.update');
-        Route::get('struktur-pimpinan', [ProfilAdminController::class, 'strukturPimpinan'])->name('struktur-pimpinan');
-        Route::post('struktur-pimpinan', [ProfilAdminController::class, 'updateStrukturPimpinan'])->name('struktur-pimpinan.update');
-        Route::resource('dosen', DosenController::class)->except(['show']);
-        Route::resource('cpl', CPLController::class)->except(['show']);
+        Route::resource('testimonials', TestimonialController::class)->except(['show']);
+        Route::resource('facilities', FacilityController::class)->except(['show']);
+        Route::resource('berita', BeritaController::class)->except(['show']);
+        Route::resource('akademik', AdminAkademikController::class)->except(['show']);
+        Route::resource('panduan-sop', PanduanSopAdminController::class)->except(['show']);
+
+        Route::prefix('profil')->name('profil.')->group(function () {
+            Route::get('visi-misi', [ProfilAdminController::class, 'visiMisi'])->name('visi-misi');
+            Route::post('visi-misi', [ProfilAdminController::class, 'updateVisiMisi'])->name('visi-misi.update');
+            Route::get('profil-lulusan', [ProfilAdminController::class, 'profilLulusan'])->name('profil-lulusan');
+            Route::post('profil-lulusan', [ProfilAdminController::class, 'updateProfilLulusan'])->name('profil-lulusan.update');
+            Route::get('struktur-pimpinan', [ProfilAdminController::class, 'strukturPimpinan'])->name('struktur-pimpinan');
+            Route::post('struktur-pimpinan', [ProfilAdminController::class, 'updateStrukturPimpinan'])->name('struktur-pimpinan.update');
+            Route::resource('dosen', DosenController::class)->except(['show']);
+            Route::resource('cpl', CplController::class)->except(['show']);
+        });
+
+        // (temp buat halaman lain nanti)
+        // Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
+        // Route::get('/berita', [AdminController::class, 'berita'])->name('berita');
+        // Route::get('/akademik', [AdminController::class, 'akademik'])->name('akademik');
+        // Route::get('/panduan-sop', [PanduanSopAdminController::class, 'panduanSop'])->name('panduan-sop');
+    
     });
 
-    // (temp buat halaman lain nanti)
-    // Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
-    // Route::get('/berita', [AdminController::class, 'berita'])->name('berita');
-    // Route::get('/akademik', [AdminController::class, 'akademik'])->name('akademik');
-    // Route::get('/panduan-sop', [PanduanSopAdminController::class, 'panduanSop'])->name('panduan-sop');
-        
-});
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
