@@ -15,6 +15,20 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminUserSeeder::class,
+            HeroSectionSeeder::class,
+            WelcomeMessageSeeder::class,
+            VisiSeeder::class,
+            MisiSeeder::class,
+            AkademikSeeder::class,
+            AkademikDokumenSeeder::class,
+            CPLSeeder::class,
+            ProfilLulusanSeeder::class,
+            LecturerSeeder::class,
+            StrukturPimpinanSeeder::class,
+            FacilitiesSeeder::class,
+            NewsAnnouncementsAchievementsSeeder::class,
+            PanduanSopSeeder::class,
+            TestimonialSeeder::class,
         ]);
     }
 }
