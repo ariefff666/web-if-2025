@@ -22,7 +22,7 @@ class AdminUserSeeder extends Seeder
             'email' => 'admin@if.unsri.ac.id',
             'is_admin' => 1,
             'email_verified_at' => '2025-11-07 07:22:25',
-            'password' => '$2y$12$rAiGnHWtzztVfQqoiPHTX.u6ET4fAYkJpSUXjNed6xKapteyKIjX.',
+            'password' => Hash::make('password'),
             'remember_token' => NULL,
             'created_at' => NULL,
             'updated_at' => NULL,
