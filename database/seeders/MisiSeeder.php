@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Misi;
+use Illuminate\Support\Facades\DB;
 
 class MisiSeeder extends Seeder
 {
@@ -13,19 +12,27 @@ class MisiSeeder extends Seeder
      */
     public function run(): void
     {
-        Misi::truncate();
+        DB::table('misis')->delete();
 
-        Misi::create([
-            'content' => 'Menyelenggarakan pendidikan tinggi di bidang Teknik Informatika yang berkualitas dan relevan dengan perkembangan industri.'
-        ]);
-        Misi::create([
-            'content' => 'Melaksanakan penelitian yang inovatif dan bermanfaat bagi masyarakat dalam bidang teknologi informasi.'
-        ]);
-        Misi::create([
-            'content' => 'Melakukan pengabdian kepada masyarakat melalui penerapan teknologi informasi untuk memecahkan masalah-masalah sosial.'
-        ]);
-        Misi::create([
-            'content' => 'Menjalin kerjasama dengan industri, pemerintah, dan lembaga pendidikan lainnya untuk meningkatkan kualitas tridharma perguruan tinggi.'
+        DB::table('misis')->insert([
+            [
+                'id' => 1,
+                'content' => "Menghasilkan tenaga ahli yang profesional di bidang Ilmu Komputer dan Rekayasa\nPerangkat Lunak yang mampu bersaing secara global serta bertaqwa kepada Tuhan\nYang Maha Esa, berakhlak tinggi, dan berbudaya Indonesia;",
+                'created_at' => '2025-12-11 12:27:53',
+                'updated_at' => '2025-12-11 12:27:53',
+            ],
+            [
+                'id' => 2,
+                'content' => "Menggiatkan penelitian di bidang Ilmu Komputer dan Rekayasa Perangkat Lunak\nuntuk pengembangan ilmu pengetahuan, Teknologi Informasi dan Komunikasi, serta\nTeknologi Tepat Guna;",
+                'created_at' => '2025-12-11 12:27:53',
+                'updated_at' => '2025-12-11 12:27:53',
+            ],
+            [
+                'id' => 3,
+                'content' => "Melakukan pengabdian yang berorientasi pada penggunaan Teknologi Informasi\nsebagai alat bantu dalam berbagai aspek kehidupan yang sesuai dengan perkembangan\ndan kebutuhan masyarakat.",
+                'created_at' => '2025-12-11 12:27:53',
+                'updated_at' => '2025-12-11 12:27:53',
+            ],
         ]);
     }
 }

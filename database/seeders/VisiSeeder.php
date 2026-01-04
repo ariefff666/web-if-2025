@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Visi;
+use Illuminate\Support\Facades\DB;
 
 class VisiSeeder extends Seeder
 {
@@ -13,10 +12,13 @@ class VisiSeeder extends Seeder
      */
     public function run(): void
     {
-        Visi::truncate();
+        DB::table('visis')->delete();
 
-        Visi::create([
-            'content' => 'Menjadi program studi Teknik Informatika yang unggul dan terkemuka dalam pengembangan teknologi informasi yang inovatif dan berdaya saing di tingkat nasional maupun internasional pada tahun 2025.'
+        DB::table('visis')->insert([
+            'id' => 1,
+            'content' => 'Menjadi program pendidikan terkemuka di bidang riset dan rekayasa informatika yang menghasilkan sumber daya manusia yang bertaqwa kepada Tuhan Yang Maha Esa, berakhlak tinggi, profesional, serta memiliki keunggulan ilmu untuk bersaing di era globalisasi.',
+            'created_at' => '2025-11-01 11:03:18',
+            'updated_at' => '2025-12-11 12:27:48',
         ]);
     }
 }

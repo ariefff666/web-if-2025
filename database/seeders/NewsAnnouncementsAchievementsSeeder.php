@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\NewsAnnouncementsAchievements;
+use Illuminate\Support\Facades\DB;
 
 class NewsAnnouncementsAchievementsSeeder extends Seeder
 {
@@ -13,34 +12,159 @@ class NewsAnnouncementsAchievementsSeeder extends Seeder
      */
     public function run(): void
     {
-        // Contoh Berita
-        NewsAnnouncementsAchievements::create([
-            'title' => 'Jurnal Universitas Telah Terakreditasi SINTA',
-            'slug' => 'jurnal-terakreditasi-sinta',
-            'category' => 'berita',
-            'excerpt' => 'Sebuah pencapaian baru...',
-            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. ',
-        ]);
+        DB::table('news_announcements_achievements')->delete();
 
-        // Contoh Pengumuman
-        NewsAnnouncementsAchievements::create([
-            'title' => 'Jadwal Ujian Akhir Semester Ganjil 2025/2026',
-            'slug' => 'jadwal-uas-ganjil-2025',
-            'category' => 'pengumuman',
-            'excerpt' => 'Berikut adalah jadwal lengkap UAS...',
-            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. ',
-        ]);
-
-        // Contoh Prestasi
-        NewsAnnouncementsAchievements::create([
-            'title' => 'Juara 1 Lomba Competitive Programming Nasional',
-            'slug' => 'juara-1-cp-nasional',
-            'category' => 'prestasi',
-            'student_name' => 'Ahmad Farhan R.',
-            'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. ',
+        DB::table('news_announcements_achievements')->insert([
+            [
+                'id' => 1,
+                'title' => 'Jurnal Universitas Telah Terakreditasi SINTA',
+                'slug' => 'jurnal-terakreditasi-sinta',
+                'category' => 'berita',
+                'is_popular' => 1,
+                'excerpt' => 'Sebuah pencapaian baru...',
+                'body' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \n                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. ",
+                'image_url' => '/storage/berita/jurnal.jpg',
+                'student_name' => NULL,
+                'date' => '2025-03-24',
+                'published_at' => NULL,
+                'created_at' => '2025-10-12 03:10:10',
+                'updated_at' => '2025-10-12 03:10:10',
+            ],
+            [
+                'id' => 3,
+                'title' => 'Juara 1 Lomba Competitive Programming Nasional',
+                'slug' => 'juara-1-cp-nasional',
+                'category' => 'prestasi',
+                'is_popular' => 1,
+                'excerpt' => NULL,
+                'body' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \r\nSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.",
+                'image_url' => '/storage/berita/news3.jpg',
+                'student_name' => 'Ahmad Farhan Rasyidin',
+                'date' => '2025-09-15',
+                'published_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ],
+            [
+                'id' => 5,
+                'title' => 'Teknologi AI Terbaru Merevolusi Industri Kesehatan',
+                'slug' => 'teknologi-ai-terbaru-revolusi-industri-kesehatan',
+                'category' => 'berita',
+                'is_popular' => 1,
+                'excerpt' => 'Sebuah terobosan dalam kecerdasan buatan menjanjikan diagnosa yang lebih cepat dan akurat untuk berbagai penyakit.',
+                'body' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada.',
+                'image_url' => 'https://placehold.co/600x400/cccccc/333333?text=Berita+1',
+                'student_name' => 'Budi Santoso',
+                'date' => '2025-10-14',
+                'published_at' => '2025-10-14 04:54:09',
+                'created_at' => '2025-10-14 04:54:09',
+                'updated_at' => '2025-10-14 04:54:09',
+            ],
+            [
+                'id' => 6,
+                'title' => 'Pemerintah Luncurkan Program Subsidi Kendaraan Listrik',
+                'slug' => 'pemerintah-luncurkan-program-subsidi-kendaraan-listrik',
+                'category' => 'berita',
+                'is_popular' => 0,
+                'excerpt' => 'Untuk mendorong adopsi kendaraan ramah lingkungan, pemerintah resmi meluncurkan skema subsidi baru.',
+                'body' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.',
+                'image_url' => 'https://placehold.co/600x400/cccccc/333333?text=Berita+2',
+                'student_name' => 'Citra Lestari',
+                'date' => '2025-10-13',
+                'published_at' => '2025-10-14 04:54:09',
+                'created_at' => '2025-10-14 04:54:09',
+                'updated_at' => '2025-10-14 04:54:09',
+            ],
+            [
+                'id' => 7,
+                'title' => 'Pasar Saham Lokal Menguat di Tengah Ketidakpastian Global',
+                'slug' => 'pasar-saham-lokal-menguat-ketidakpastian-global',
+                'category' => 'berita',
+                'is_popular' => 1,
+                'excerpt' => 'Indeks Harga Saham Gabungan (IHSG) ditutup menguat pada perdagangan hari ini meskipun bursa regional melemah.',
+                'body' => 'Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.',
+                'image_url' => 'https://placehold.co/600x400/cccccc/333333?text=Berita+3',
+                'student_name' => NULL,
+                'date' => '2025-10-12',
+                'published_at' => '2025-10-14 04:54:09',
+                'created_at' => '2025-10-14 04:54:09',
+                'updated_at' => '2025-10-14 04:54:09',
+            ],
+            [
+                'id' => 8,
+                'title' => 'Final Kompetisi E-sports Nasional Dimenangkan Tim Asal Surabaya',
+                'slug' => 'final-kompetisi-esports-nasional-dimenangkan-surabaya',
+                'category' => 'berita',
+                'is_popular' => 1,
+                'excerpt' => 'Pertandingan sengit terjadi di babak final yang mempertemukan dua tim terkuat dari Jakarta dan Surabaya.',
+                'body' => 'Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat.',
+                'image_url' => 'https://placehold.co/600x400/cccccc/333333?text=Berita+4',
+                'student_name' => 'Eka Wijaya',
+                'date' => '2025-10-11',
+                'published_at' => '2025-10-11 02:00:00',
+                'created_at' => '2025-10-14 04:54:09',
+                'updated_at' => '2025-10-14 04:54:09',
+            ],
+            [
+                'id' => 9,
+                'title' => 'Festival Kuliner Nusantara Kembali Digelar di Ibu Kota',
+                'slug' => 'festival-kuliner-nusantara-kembali-digelar',
+                'category' => 'berita',
+                'is_popular' => NULL,
+                'excerpt' => 'Acara tahunan yang paling ditunggu para pecinta kuliner ini akan menampilkan lebih dari 100 jenis makanan khas daerah.',
+                'body' => 'Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus.',
+                'image_url' => 'https://placehold.co/600x400/cccccc/333333?text=Berita+5',
+                'student_name' => 'Rina Marlina',
+                'date' => '2025-10-10',
+                'published_at' => NULL,
+                'created_at' => '2025-10-14 04:54:09',
+                'updated_at' => '2025-10-14 04:54:09',
+            ],
+            [
+                'id' => 10,
+                'title' => 'Proyek Pembangunan Jalan Tol Trans-Sumatera Capai 80%',
+                'slug' => 'proyek-pembangunan-jalan-tol-trans-sumatera-80-persen',
+                'category' => 'berita',
+                'is_popular' => 0,
+                'excerpt' => 'Pembangunan infrastruktur strategis nasional ini diharapkan dapat rampung sesuai target pada akhir tahun depan.',
+                'body' => 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia.',
+                'image_url' => 'https://placehold.co/600x400/cccccc/333333?text=Berita+6',
+                'student_name' => NULL,
+                'date' => '2025-10-09',
+                'published_at' => '2025-10-09 07:30:00',
+                'created_at' => '2025-10-14 04:54:09',
+                'updated_at' => '2025-10-14 04:54:09',
+            ],
+            [
+                'id' => 11,
+                'title' => 'Cuaca Ekstrem Diperkirakan Melanda Sebagian Wilayah Indonesia',
+                'slug' => 'cuaca-ekstrem-diperkirakan-melanda-indonesia',
+                'category' => 'berita',
+                'is_popular' => 0,
+                'excerpt' => 'BMKG mengeluarkan peringatan dini terkait potensi hujan lebat disertai angin kencang dan petir dalam beberapa hari ke depan.',
+                'body' => 'Integer rutrum ante eu lacus. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio.',
+                'image_url' => NULL,
+                'student_name' => 'Agus Setiawan',
+                'date' => '2025-10-08',
+                'published_at' => '2025-10-14 04:54:09',
+                'created_at' => '2025-10-14 04:54:09',
+                'updated_at' => '2025-10-14 04:54:09',
+            ],
+            [
+                'id' => 12,
+                'title' => 'test',
+                'slug' => 'test',
+                'category' => 'berita',
+                'is_popular' => NULL,
+                'excerpt' => NULL,
+                'body' => 'lorem ipsum',
+                'image_url' => NULL,
+                'student_name' => NULL,
+                'date' => NULL,
+                'published_at' => NULL,
+                'created_at' => '2025-11-20 00:14:32',
+                'updated_at' => '2025-11-20 00:14:32',
+            ],
         ]);
     }
 }

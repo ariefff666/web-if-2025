@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\PanduanSop;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class PanduanSopSeeder extends Seeder
 {
@@ -13,43 +12,16 @@ class PanduanSopSeeder extends Seeder
      */
     public function run(): void
     {
-        PanduanSop::truncate();
+        DB::table('panduan_sops')->delete();
 
-        $panduan = [
-            [
-                'title' => 'Prosedur Tugas Akhir',
-                'slug' => 'prosedur-tugas-akhir',
-                'file_path' => 'panduan-sop/prosedur-tugas-akhir.pdf',
-            ],
-            [
-                'title' => 'Panduan Tugas Akhir',
-                'slug' => 'panduan-tugas-akhir',
-                'file_path' => 'panduan-sop/panduan-tugas-akhir.pdf',
-            ],
-            [
-                'title' => 'Prosedur Kerja Praktek',
-                'slug' => 'prosedur-kerja-praktek',
-                'file_path' => 'panduan-sop/prosedur-kerja-praktek.pdf',
-            ],
-            [
-                'title' => 'Panduan Kerja Praktek',
-                'slug' => 'panduan-kerja-praktek',
-                'file_path' => 'panduan-sop/panduan-kerja-praktek.pdf',
-            ],
-            [
-                'title' => 'SOP MBKM',
-                'slug' => 'sop-mbkm',
-                'file_path' => 'panduan-sop/sop-mbkm.pdf',
-            ],
-            [
-                'title' => 'Panduan Mata Kuliah Berbasis Proyek',
-                'slug' => 'panduan-mk-proyek',
-                'file_path' => 'panduan-sop/panduan-mk-proyek.pdf',
-            ],
-        ];
-
-        foreach ($panduan as $item) {
-            PanduanSop::create($item);
-        }
+        DB::table('panduan_sops')->insert([
+            'id' => 7,
+            'title' => 'entah',
+            'category' => 'sop',
+            'slug' => 'entah',
+            'file_path' => '/storage/documents/panduan-sop/aLoOPk3n7Ixav9hdRSQ2QqmPDvw5AyEpORpKKcKL.pdf',
+            'created_at' => '2025-11-29 01:14:39',
+            'updated_at' => '2025-11-29 01:14:39',
+        ]);
     }
 }

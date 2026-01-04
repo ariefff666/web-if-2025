@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\StrukturPimpinan;
+use Illuminate\Support\Facades\DB;
 
 class StrukturPimpinanSeeder extends Seeder
 {
@@ -13,10 +12,13 @@ class StrukturPimpinanSeeder extends Seeder
      */
     public function run(): void
     {
-        StrukturPimpinan::truncate();
+        DB::table('struktur_pimpinans')->delete();
 
-        StrukturPimpinan::create([
+        DB::table('struktur_pimpinans')->insert([
+            'id' => 1,
             'content' => '/storage/struktur-pimpinan/struktur-pimpinan.png',
+            'created_at' => '2025-11-03 09:50:41',
+            'updated_at' => '2025-11-03 09:50:41',
         ]);
     }
 }

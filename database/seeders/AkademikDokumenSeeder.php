@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\AkademikDokumen;
+use Illuminate\Support\Facades\DB;
 
 class AkademikDokumenSeeder extends Seeder
 {
@@ -13,11 +12,23 @@ class AkademikDokumenSeeder extends Seeder
      */
     public function run(): void
     {
-        AkademikDokumen::truncate();
+        DB::table('akademik_dokumens')->delete();
 
-        AkademikDokumen::insert([
-            ['title' => 'Kurikulum','file_path' => '/storage/akademik/kurikulum.pdf'],
-            ['title' => 'Dummy','file_path' => '/storage/akademik/dummyPDF.pdf'],
+        DB::table('akademik_dokumens')->insert([
+            [
+                'id' => 1,
+                'title' => 'Kurikulum',
+                'file_path' => '/storage/akademik/kurikulum.pdf',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ],
+            [
+                'id' => 2,
+                'title' => 'Dummy',
+                'file_path' => '/storage/akademik/dummyPDF.pdf',
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ],
         ]);
     }
 }

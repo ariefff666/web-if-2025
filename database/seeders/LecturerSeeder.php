@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Lecturer;
+use Illuminate\Support\Facades\DB;
 
 class LecturerSeeder extends Seeder
 {
@@ -12,36 +12,49 @@ class LecturerSeeder extends Seeder
      */
     public function run(): void
     {
-        $lecturers = [
+        DB::table('lecturers')->delete();
+
+        DB::table('lecturers')->insert([
             [
-                'name' => 'Muhammad Zakaa Shahzada, S.T., M.Kom.',
-                'title' => 'Dosen Bidang Animasi dan Multimedia',
-                'photoUrl' => '/images/dosen/dosen-1.jpg',
+                'id' => 1,
+                'name' => 'Hadipurnawan Satria, M.Sc., Ph.D.',
+                'title' => 'Dosen Bidang Sistem Terdistribusi',
+                'photoUrl' => '/storage/dosen/hadi-purnawan.jpeg',
+                'created_at' => '2025-10-11 17:59:14',
+                'updated_at' => '2025-10-11 17:59:14',
             ],
             [
-                'name' => 'Dr. Eng. Ade Candra, S.T., M.Kom.',
-                'title' => 'Dosen Bidang Keahlian AI',
-                'photoUrl' => '/images/dosen/dosen-2.jpg',
+                'id' => 2,
+                'name' => 'Anggina Primanita, M.IT, Ph. D',
+                'title' => 'Dosen Bidang Game Development',
+                'photoUrl' => '/storage/dosen/anggina-primanita.jpeg',
+                'created_at' => '2025-10-11 17:59:14',
+                'updated_at' => '2025-10-11 17:59:14',
             ],
             [
-                'name' => 'Prof. Dr. Indah Lestari, M.Cs.',
-                'title' => 'Dosen Bidang Keahlian Data Science',
-                'photoUrl' => '/images/dosen/dosen-3.jpg',
+                'id' => 3,
+                'name' => 'Kanda Januar Miraswan, M.T.',
+                'title' => 'Dosen Bidang Big Data dan Pengenalan Pola',
+                'photoUrl' => '/storage/dosen/kanda-januar.jpeg',
+                'created_at' => '2025-10-11 17:59:14',
+                'updated_at' => '2025-10-11 17:59:14',
             ],
             [
-                'name' => 'Budi Santoso, S.Kom., M.TI.',
-                'title' => 'Dosen Bidang Keahlian Keamanan Siber',
-                'photoUrl' => '/images/dosen/dosen-4.jpg',
+                'id' => 4,
+                'name' => 'Novi Yusliani, M.T.',
+                'title' => 'Dosen Bidang Pemrosesan Bahasa Alami',
+                'photoUrl' => '/storage/dosen/dosen-4.jpg',
+                'created_at' => '2025-10-11 17:59:14',
+                'updated_at' => '2025-10-11 17:59:14',
             ],
             [
+                'id' => 5,
                 'name' => 'Citra Dewi, S.Kom., M.Kom.',
                 'title' => 'Dosen Bidang Keahlian Jaringan Komputer',
-                'photoUrl' => '/images/dosen/dosen-5.jpg',
+                'photoUrl' => '/storage/dosen/dosen-5.jpg',
+                'created_at' => '2025-10-11 17:59:14',
+                'updated_at' => '2025-10-11 17:59:14',
             ],
-        ];
-
-        foreach ($lecturers as $lecturer) {
-            Lecturer::create($lecturer);
-        }
+        ]);
     }
 }

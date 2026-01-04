@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Akademik;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AkademikSeeder extends Seeder
 {
@@ -13,23 +12,27 @@ class AkademikSeeder extends Seeder
      */
     public function run(): void
     {
-        Akademik::truncate();
+        DB::table('akademiks')->delete();
 
-        $akademiks = [
+        DB::table('akademiks')->insert([
             [
-                'title' => 'Kurikulum',
-                'slug' => 'kurikulum',
-                'file_path' => '/storage/akademik/kurikulum.pdf',
+                'id' => 4,
+                'title' => 'RAG',
+                'category' => 'dokumen',
+                'slug' => 'rag',
+                'file_path' => '/storage/documents/akademik/wGyZqHNYjWB7uqQgfBFRLMIummmSMs9aeg2X4DXW.pdf',
+                'created_at' => '2025-11-29 00:22:09',
+                'updated_at' => '2025-11-29 00:22:09',
             ],
             [
-                'title' => 'Jadwal',
-                'slug' => 'jadwal',
-                'file_path' => '/storage/akademik/kurikulum.pdf',
+                'id' => 5,
+                'title' => 'anu',
+                'category' => 'dokumen',
+                'slug' => 'anu',
+                'file_path' => '/storage/documents/akademik/OcqMyL0PSLnyDDALZ0wtlh3wCo8Nokusj4yecjdZ.pdf',
+                'created_at' => '2025-11-29 00:29:20',
+                'updated_at' => '2025-11-29 00:29:20',
             ],
-        ];
-
-        foreach ($akademiks as $item) {
-            Akademik::create($item);
-        }
+        ]);
     }
 }

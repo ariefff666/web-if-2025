@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\HeroSection;
+use Illuminate\Support\Facades\DB;
 
 class HeroSectionSeeder extends Seeder
 {
@@ -13,13 +12,16 @@ class HeroSectionSeeder extends Seeder
      */
     public function run(): void
     {
-        HeroSection::truncate();
+        DB::table('hero_sections')->delete();
 
-        HeroSection::create([
-            'hero_image_path' => '/storage/dosen/hadi-purnawan.jpeg',
+        DB::table('hero_sections')->insert([
+            'id' => 1,
+            'hero_image_path' => '/storage/images/hero/H3GlffDdC4JlRznVSKDRSF9OR1c9zwEJD0NLUENw.png',
             'title' => 'Tentang Prodi Teknik Informatika',
-            'paragraph_1' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse ipsam ratione maiores at ipsa quo laudantium ad illum commodi cupiditate repellendus laboriosam modi, quos alias voluptatibus minima nihil a eaque in, similique fugit dignissimos.',
-            'paragraph_2' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias minus asperiores et quas dolorem, dignissimos molestias aliquam odit accusantium quisquam minima earum ullam facere nemo accusamus animi perferendis architecto similique.',
+            'paragraph_1' => 'Teknik Informatika merupakan disiplin ilmu yang berfokus pada perancangan, pengembangan, dan penerapan sistem komputasi cerdas. Di sini, mahasiswa tidak hanya mempelajari bahasa pemrograman, tetapi juga diasah kemampuan logika dan analisisnya untuk menciptakan solusi teknologi inovatif—mulai dari Rekayasa Perangkat Lunak, Kecerdasan Buatan (AI), hingga Keamanan Siber—yang menjadi fondasi utama di era digital saat ini.',
+            'paragraph_2' => 'Kami berkomitmen untuk mencetak lulusan yang kompeten, adaptif, dan berdaya saing global dalam menghadapi tantangan Revolusi Industri 4.0. Melalui kurikulum yang terintegrasi dengan kebutuhan industri, kami mempersiapkan talenta digital masa depan yang siap memberikan kontribusi nyata bagi kemajuan teknologi, masyarakat, dan bangsa.',
+            'created_at' => '2025-11-01 01:14:31',
+            'updated_at' => '2025-12-11 12:21:27',
         ]);
     }
 }
