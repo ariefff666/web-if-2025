@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('struktur_pimpinans', function (Blueprint $table) {
+        Schema::create('struktur_pimpinan', function (Blueprint $table) {
             $table->id();
             $table->string('content');
             $table->timestamps();
@@ -22,6 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('struktur_pimpinans');
+        Schema::dropIfExists('struktur_pimpinan');
     }
 };
