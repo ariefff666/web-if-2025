@@ -23,7 +23,11 @@ echo "==> Running database migrations"
 php artisan migrate --force
 
 echo "==> Creating storage link"
-php artisan storage:link 2>/dev/null || true
+if [ -e public/storage ] || [ -L public/storage ]; then
+    echo "==> Storage link already exists"
+else
+    php artisan storage:link
+fi
 
 echo "==> Starting Apache"
 exec apache2-foreground

@@ -22,6 +22,8 @@ RUN apt-get update \
         libonig-dev \
         libzip-dev \
     && docker-php-ext-install mbstring pdo_mysql zip opcache \
+    && a2dismod mpm_event mpm_worker \
+    && a2enmod mpm_prefork \
     && a2enmod rewrite headers \
     && ln -sf /etc/ssl/certs/ca-certificates.crt /etc/ssl/cert.pem \
     && rm -rf /var/lib/apt/lists/*
