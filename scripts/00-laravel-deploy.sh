@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
+set -e
 
 echo "==> Running deploy script..."
-
-echo "Installing composer dependencies..."
-composer install --no-dev --working-dir=/var/www/html
-
-echo "Installing npm dependencies & building assets..."
-cd /var/www/html
-npm ci && npm run build
 
 echo "Caching Laravel config..."
 php artisan config:cache
