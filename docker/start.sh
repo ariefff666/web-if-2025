@@ -6,6 +6,9 @@ export PORT="${PORT:-80}"
 echo "==> Starting Laravel container on port ${PORT}"
 
 sed -i "s/^Listen .*/Listen ${PORT}/" /etc/apache2/ports.conf
+rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf
+ln -sf ../mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load
+ln -sf ../mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf
 
 mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache
 chown -R www-data:www-data storage bootstrap/cache
@@ -30,4 +33,5 @@ else
 fi
 
 echo "==> Starting Apache"
+apache2ctl -M | grep mpm || true
 exec apache2-foreground

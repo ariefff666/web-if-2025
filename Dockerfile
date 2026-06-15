@@ -22,8 +22,9 @@ RUN apt-get update \
         libonig-dev \
         libzip-dev \
     && docker-php-ext-install mbstring pdo_mysql zip opcache \
-    && a2dismod mpm_event mpm_worker \
-    && a2enmod mpm_prefork \
+    && rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
+    && ln -sf ../mods-available/mpm_prefork.load /etc/apache2/mods-enabled/mpm_prefork.load \
+    && ln -sf ../mods-available/mpm_prefork.conf /etc/apache2/mods-enabled/mpm_prefork.conf \
     && a2enmod rewrite headers \
     && ln -sf /etc/ssl/certs/ca-certificates.crt /etc/ssl/cert.pem \
     && rm -rf /var/lib/apt/lists/*
