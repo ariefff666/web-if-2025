@@ -18,8 +18,8 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --working-d
 RUN chmod +x /var/www/html/scripts/00-laravel-deploy.sh
 
 COPY --from=frontend /app/public/build /var/www/html/public/build
-
 # Image config
+
 ENV SKIP_COMPOSER 1
 ENV WEBROOT /var/www/html/public
 ENV PHP_ERRORS_STDERR 1
