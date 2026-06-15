@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Department organization structure</title>
+  <desc id="desc">Organization chart illustration for Informatics department leadership.</desc>
+  <rect width="1200" height="760" fill="#f6fbff"/>
+  <text x="600" y="85" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#174a6a">Struktur Pimpinan Program Studi</text>
+  <rect x="420" y="130" width="360" height="90" rx="14" fill="#0f6fae"/>
+  <text x="600" y="184" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#ffffff">Ketua Program Studi</text>
+  <path d="M600 220v70M300 290h600M300 290v70M600 290v70M900 290v70" stroke="#174a6a" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <rect x="140" y="360" width="320" height="86" rx="14" fill="#21865a"/>
+  <rect x="440" y="360" width="320" height="86" rx="14" fill="#f7c948"/>
+  <rect x="740" y="360" width="320" height="86" rx="14" fill="#5948a8"/>
+  <text x="300" y="412" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#ffffff">Koordinator Akademik</text>
+  <text x="600" y="412" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#174a6a">Koordinator Kemahasiswaan</text>
+  <text x="900" y="412" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#ffffff">Koordinator Laboratorium</text>
+  <path d="M300 446v65M600 446v65M900 446v65" stroke="#174a6a" stroke-width="8" stroke-linecap="round"/>
+  <rect x="190" y="515" width="220" height="70" rx="12" fill="#ffffff" stroke="#21865a" stroke-width="6"/>
+  <rect x="490" y="515" width="220" height="70" rx="12" fill="#ffffff" stroke="#f7c948" stroke-width="6"/>
+  <rect x="790" y="515" width="220" height="70" rx="12" fill="#ffffff" stroke="#5948a8" stroke-width="6"/>
+  <text x="300" y="558" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#174a6a">Admin Akademik</text>
+  <text x="600" y="558" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#174a6a">Tim MBKM</text>
+  <text x="900" y="558" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#174a6a">Asisten Lab</text>
+</svg>

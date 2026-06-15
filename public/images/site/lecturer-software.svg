@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">Software engineering lecturer</title>
+  <desc id="desc">Portrait illustration with software engineering elements.</desc>
+  <rect width="720" height="720" fill="#edf7ff"/>
+  <circle cx="360" cy="250" r="115" fill="#f0c7a0"/>
+  <path d="M240 245c25-110 210-120 245-10 10 30 5 65-10 95-55-35-145-35-215 0-20-35-25-60-20-85z" fill="#25364a"/>
+  <path d="M155 670c30-175 115-250 205-250s175 75 205 250z" fill="#0f6fae"/>
+  <rect x="85" y="80" width="170" height="115" rx="12" fill="#ffffff"/>
+  <path d="M120 145l32-28-32-28M190 89l-32 56" stroke="#0f6fae" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

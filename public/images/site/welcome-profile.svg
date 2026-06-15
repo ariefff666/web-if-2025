@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Program chair portrait placeholder</title>
+  <desc id="desc">Professional portrait-style illustration.</desc>
+  <rect width="720" height="900" fill="#eef6fb"/>
+  <circle cx="360" cy="285" r="130" fill="#f2c9a0"/>
+  <path d="M220 250c25-105 255-120 285 10 10 45-5 85-25 115-20-25-38-55-45-95-70 35-150 35-215-30z" fill="#1f3b57"/>
+  <path d="M150 790c25-185 115-285 210-285s185 100 210 285z" fill="#0f6fae"/>
+  <path d="M270 540l90 85 90-85 48 250H222z" fill="#ffffff"/>
+  <text x="360" y="840" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#174a6a">Ketua Program Studi</text>
+</svg>

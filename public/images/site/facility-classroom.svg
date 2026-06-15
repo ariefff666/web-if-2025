@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Smart classroom</title>
+  <desc id="desc">Smart classroom illustration.</desc>
+  <rect width="960" height="640" fill="#f7fbf0"/>
+  <rect x="110" y="120" width="740" height="360" rx="18" fill="#ffffff"/>
+  <rect x="180" y="170" width="600" height="170" rx="10" fill="#1f5f4a"/>
+  <path d="M225 390h510M250 430h460" stroke="#f7c948" stroke-width="24" stroke-linecap="round"/>
+  <text x="480" y="265" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#ffffff">Smart Classroom</text>
+  <text x="480" y="565" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#1f5f4a">Ruang Kelas</text>
+</svg>

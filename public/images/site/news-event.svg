@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Workshop and student event</title>
+  <desc id="desc">Illustration for academic event news.</desc>
+  <rect width="960" height="540" fill="#f2f8f3"/>
+  <rect x="100" y="100" width="760" height="340" rx="22" fill="#ffffff"/>
+  <rect x="160" y="155" width="310" height="190" rx="14" fill="#21865a"/>
+  <path d="M205 240h220M205 285h165" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="610" cy="225" r="72" fill="#f7c948"/>
+  <path d="M520 380c20-75 58-115 90-115s70 40 90 115z" fill="#0f6fae"/>
+  <text x="480" y="485" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="700" fill="#1f5f4a">Workshop dan Kegiatan Mahasiswa</text>
+</svg>

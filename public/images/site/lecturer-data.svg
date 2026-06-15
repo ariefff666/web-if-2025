@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">Data science lecturer</title>
+  <desc id="desc">Portrait illustration with data visualization elements.</desc>
+  <rect width="720" height="720" fill="#eefaf2"/>
+  <circle cx="360" cy="250" r="115" fill="#e7b98d"/>
+  <path d="M245 245c18-95 190-130 235-18 16 40 8 78-8 107-62-32-143-34-220 0-16-35-19-63-7-89z" fill="#263238"/>
+  <path d="M155 670c30-175 115-250 205-250s175 75 205 250z" fill="#21865a"/>
+  <rect x="465" y="95" width="170" height="125" rx="12" fill="#ffffff"/>
+  <rect x="500" y="170" width="18" height="25" fill="#21865a"/>
+  <rect x="535" y="145" width="18" height="50" fill="#f7c948"/>
+  <rect x="570" y="120" width="18" height="75" fill="#0f6fae"/>
+</svg>

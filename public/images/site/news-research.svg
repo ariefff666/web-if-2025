@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Research and innovation</title>
+  <desc id="desc">Illustration for research news.</desc>
+  <rect width="960" height="540" fill="#edf7ff"/>
+  <circle cx="760" cy="115" r="56" fill="#f7c948"/>
+  <rect x="120" y="130" width="360" height="250" rx="20" fill="#ffffff"/>
+  <path d="M170 325l75-80 70 60 95-120" stroke="#0f6fae" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="560" y="160" width="250" height="190" rx="18" fill="#174a6a"/>
+  <path d="M620 255h130M620 295h90M620 215h160" stroke="#9bd1ef" stroke-width="16" stroke-linecap="round"/>
+  <text x="480" y="460" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700" fill="#174a6a">Riset dan Inovasi Informatika</text>
+</svg>

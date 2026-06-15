@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Digital library</title>
+  <desc id="desc">Digital library illustration.</desc>
+  <rect width="960" height="640" fill="#fff6e6"/>
+  <rect x="145" y="135" width="670" height="360" rx="18" fill="#ffffff"/>
+  <rect x="195" y="185" width="105" height="245" fill="#0f6fae"/>
+  <rect x="320" y="185" width="105" height="245" fill="#f7c948"/>
+  <rect x="445" y="185" width="105" height="245" fill="#21865a"/>
+  <rect x="570" y="185" width="105" height="245" fill="#5948a8"/>
+  <rect x="695" y="185" width="55" height="245" fill="#ef7d45"/>
+  <text x="480" y="565" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#8a4d12">Perpustakaan Digital</text>
+</svg>
