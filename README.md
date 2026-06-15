@@ -300,7 +300,17 @@ web-if-2025/
 <table>
 <tr>
 <td align="center">
-<b>Muhammad Arief Pratama</b><br/>
+<a href="https://github.com/ariefff666">
+<img src="https://github.com/ariefff666.png" width="100px;" alt="Muhammad Arief Pratama" style="border-radius:50%"/><br/>
+<b>Muhammad Arief Pratama</b>
+</a><br/>
+<sub>Full Stack Developer</sub>
+</td>
+<td align="center">
+<a href="https://github.com/hanrsyidin">
+<img src="https://github.com/hanrsyidin.png" width="100px;" alt="Ahmad Farhan Rasyidin" style="border-radius:50%"/><br/>
+<b>Ahmad Farhan Rasyidin</b>
+</a><br/>
 <sub>Full Stack Developer</sub>
 </td>
 </tr>
