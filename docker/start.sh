@@ -1,22 +1,29 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-# Use PORT from environment (Render provides this), default to 10000
-export PORT="${PORT:-10000}"
+export PORT="${PORT:-80}"
 
-# Update Apache port configuration
-sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf
+echo "==> Starting Laravel container on port ${PORT}"
 
-# Laravel production optimizations
+sed -i "s/^Listen .*/Listen ${PORT}/" /etc/apache2/ports.conf
+
+mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache
+
+echo "==> Caching Laravel config"
 php artisan config:cache
+
+echo "==> Caching Laravel routes"
 php artisan route:cache
+
+echo "==> Caching Laravel views"
 php artisan view:cache
 
-# Run database migrations
+echo "==> Running database migrations"
 php artisan migrate --force
 
-# Create storage symlink (ignore if already exists)
+echo "==> Creating storage link"
 php artisan storage:link 2>/dev/null || true
 
-# Start Apache in foreground
-apache2-foreground
+echo "==> Starting Apache"
+exec apache2-foreground

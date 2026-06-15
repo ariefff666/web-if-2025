@@ -8,30 +8,40 @@ RUN npm ci
 COPY resources ./resources
 COPY public ./public
 COPY vite.config.js tsconfig.json tailwind.config.js postcss.config.js ./
-RUN npm run build
+RUN rm -f public/hot && npm run build
 
-FROM richarvey/nginx-php-fpm:3.1.6
+FROM php:8.3-apache
 
+WORKDIR /var/www/html
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        git \
+        unzip \
+        libonig-dev \
+        libzip-dev \
+    && docker-php-ext-install mbstring pdo_mysql zip opcache \
+    && a2enmod rewrite headers \
+    && ln -sf /etc/ssl/certs/ca-certificates.crt /etc/ssl/cert.pem \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY . .
-
-RUN composer install --no-dev --optimize-autoloader --no-interaction --working-dir=/var/www/html
-RUN chmod +x /var/www/html/scripts/00-laravel-deploy.sh
-
 COPY --from=frontend /app/public/build /var/www/html/public/build
-# Image config
+COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY docker/start.sh /usr/local/bin/start.sh
 
-ENV SKIP_COMPOSER 1
-ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
+RUN rm -f public/hot \
+    && composer install --no-dev --optimize-autoloader --no-interaction \
+    && chmod +x /usr/local/bin/start.sh \
+    && mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache \
+    && chmod -R 775 storage bootstrap/cache
 
-# Laravel config
-ENV APP_ENV production
-ENV APP_DEBUG false
-ENV LOG_CHANNEL stderr
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV LOG_CHANNEL=stderr
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-# Allow composer to run as root
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
-CMD ["/start.sh"]
+CMD ["/usr/local/bin/start.sh"]
